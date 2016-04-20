@@ -50,7 +50,8 @@
         "Microsoft.CodeAnalysis.CSharp.Workspaces": "2.0.0-beta1",
         "Microsoft.CodeAnalysis.Workspaces.Common": "2.0.0-beta1",
         "Microsoft.DotNet.ProjectModel.Workspaces": "1.0.0-beta-*",
-        "Microsoft.NETCore.Platforms": "1.0.1-*"
+        "Microsoft.NETCore.Platforms": "1.0.1-*",
+        "System.Runtime":	"4.1.0-*"
       }
     }
   },
