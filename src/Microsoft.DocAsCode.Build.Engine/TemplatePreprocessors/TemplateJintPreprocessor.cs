@@ -4,9 +4,12 @@
 namespace Microsoft.DocAsCode.Build.Engine
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     using Jint;
+    using Jint.Native;
+    using Jint.Native.Object;
 
     using Microsoft.DocAsCode.Common;
     using Microsoft.DocAsCode.Utility;
@@ -15,6 +18,10 @@ namespace Microsoft.DocAsCode.Build.Engine
     {
         private const string TransformFuncVariableName = "transform";
         private const string ConsoleVariableName = "console";
+        private const string ExportsVariableName = "exports";
+        private const string XrefFuncVariableName = "xref";
+        private const string GlobalVariableFuncVariableName = "global";
+        private const string ModelFuncVariableName = "model";
 
         private static readonly object ConsoleObject = new
         {
@@ -25,7 +32,11 @@ namespace Microsoft.DocAsCode.Build.Engine
             error = new Action<object>(s => Logger.LogError(s.ToString())),
         };
 
-        private readonly Engine _engine;
+        public FuncWithParams GetXrefFunc { get; }
+
+        public FuncWithParams GetGlobalVariablesFunc { get; }
+
+        public FuncWithParams TransformModelFunc { get; }
 
         public TemplateJintPreprocessor(string script)
         {
@@ -34,25 +45,45 @@ namespace Microsoft.DocAsCode.Build.Engine
                 var engine = new Engine();
 
                 engine.SetValue(ConsoleVariableName, ConsoleObject);
+                engine.SetValue(ExportsVariableName, engine.Object.Construct(Jint.Runtime.Arguments.Empty));
 
                 engine.Execute(script);
-                _engine = engine;
-            }
-            else
-            {
-                _engine = null;
+                var value = engine.GetValue(ExportsVariableName);
+                if (value.IsObject())
+                {
+                    var exports = value.AsObject();
+                    var xrefFuncValue = exports.Get(XrefFuncVariableName);
+
+                    GetXrefFunc = GetFunc(XrefFuncVariableName, exports);
+                    GetGlobalVariablesFunc = GetFunc(GlobalVariableFuncVariableName, exports);
+                    TransformModelFunc = GetFunc(ModelFuncVariableName, exports);
+                }
+                else
+                {
+                    throw new InvalidPreprocessorException("Invalid 'exports' variable definition. 'exports' MUST be an object.");
+                }
             }
         }
 
-        public object Process(params object[] args)
+        private static FuncWithParams GetFunc(string funcName, ObjectInstance exports)
         {
-            if (_engine == null)
+            var func = exports.Get(funcName);
+            if (func.IsUndefined() || func.IsNull())
             {
-                return args.FirstOrDefault();
+                return null;
             }
-
-            var model = args.Select(s => (object)JintProcessorHelper.ConvertStrongTypeToJsValue(s)).ToArray();
-            return _engine.Invoke(TransformFuncVariableName, model).ToObject();
+            if (func.Is<ICallable>())
+            {
+                return args =>
+                {
+                    var model = args.Select(s => JintProcessorHelper.ConvertStrongTypeToJsValue(s)).ToArray();
+                    return func.Invoke(model).ToObject();
+                };
+            }
+            else
+            {
+                throw new InvalidPreprocessorException($"Invalid '{funcName}' variable definition. '{funcName} MUST be a function");
+            }
         }
     }
 }

@@ -1,52 +1,38 @@
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.
-function transform(model, _attrs) {
-    var vm = {};
-    // Copy default _attrs and override name/id
-    for (var key in _attrs) {
-        if (_attrs.hasOwnProperty(key)) {
-            vm[key] = _attrs[key];
-        }
-    }
-    // Copy model
-    for (var key in model) {
-        if (model.hasOwnProperty(key)) {
-            vm[key] = model[key];
-        }
-    }
-    var _fileNameWithoutExt = getFileNameWithoutExtension(_attrs._path);
-    vm._jsonPath = _fileNameWithoutExt + ".swagger.json";
-    vm._disableToc = vm._disableToc || !vm._tocPath || (vm._navPath === vm._tocPath);
-    vm.title = vm.title || vm.name;
+exports.model = function (model) {
+    var _fileNameWithoutExt = getFileNameWithoutExtension(model._path);
+    model._jsonPath = _fileNameWithoutExt + ".swagger.json";
+    model._disableToc = model._disableToc || !model._tocPath || (model._navPath === model._tocPath);
+    model.title = model.title || model.name;
 
-    vm.docurl = vm.docurl || getImproveTheDocHref(vm, vm.newFileRepository);
-    vm.sourceurl = vm.sourceurl || getViewSourceHref(vm);
-    if (vm.children) {
+    model.docurl = model.docurl || getImproveTheDocHref(model, model.newFileRepository);
+    model.sourceurl = model.sourceurl || getViewSourceHref(model);
+    if (model.children) {
         var ordered = [];
-        for (var i = 0; i < vm.children.length; i++) {
-            var child = vm.children[i];
-            child.docurl = child.docurl || getImproveTheDocHref(child, vm.newFileRepository);
+        for (var i = 0; i < model.children.length; i++) {
+            var child = model.children[i];
+            child.docurl = child.docurl || getImproveTheDocHref(child, model.newFileRepository);
             if (child.operation) {
                 child.operation = child.operation.toUpperCase();
             }
-            child.path = appendQueryParamsToPath(child.path, child.parameters);
             child.sourceurl = child.sourceurl || getViewSourceHref(child);
             child.conceptual = child.conceptual || ''; // set to empty incase mustache looks up
             child.footer = child.footer || ''; // set to empty incase mustache looks up
-            if (vm.sections && child.uid) {
-                var index = vm.sections.indexOf(child.uid);
+            if (model.sections && child.uid) {
+                var index = model.sections.indexOf(child.uid);
                 if (index > -1) {
                     ordered[index] = child;
                 }
             }
-            vm.children[i] = transformReference(vm.children[i]);
+            model.children[i] = transformReference(model.children[i]);
         };
-        if (vm.sections) {
-            // Remove empty values from ordered, in case item in sections is not in swagger json 
-            vm.children = ordered.filter(function(o){ return o; });
+        if (model.sections) {
+            // Remove empty values from ordered, in case item in sections is not in swagger json
+            model.children = ordered.filter(function(o){ return o; });
         }
     }
 
-    return vm;
+    return model;
 
     function transformReference(obj) {
         if (Array.isArray(obj)) {
@@ -200,34 +186,5 @@ function transform(model, _attrs) {
         if (!path || path[path.length - 1] === '/' || path[path.length - 1] === '\\') return '';
         var fileName = path.split('\\').pop().split('/').pop();
         return fileName.slice(0, fileName.lastIndexOf('.'));
-    }
-
-    function appendQueryParamsToPath(path, parameters) {
-        if (!path || !parameters) return path;
-
-        var requiredQueryParams = parameters.filter(function(p) { return p.in === 'query' && p.required; });
-        if (requiredQueryParams.length > 0) {
-            path = formatParams(path, requiredQueryParams, true);
-        }
-
-        var optionalQueryParams = parameters.filter(function(p) { return p.in === 'query' && !p.required; });
-        if (optionalQueryParams.length > 0) {
-            path += "[";
-            path = formatParams(path, optionalQueryParams, requiredQueryParams.length == 0);
-            path += "]";
-        }
-        return path;
-    }
-
-    function formatParams(path, parameters, isFirst) {
-        for (var i = 0; i < parameters.length; i++) {
-            if (i == 0 && isFirst) {
-                path += "?";
-            } else {
-                path += "&";
-            }
-            path += parameters[i].name;
-        }
-        return path;
     }
 }

@@ -9,6 +9,7 @@ namespace Microsoft.DocAsCode.Build.Engine
     using System.Text.RegularExpressions;
 
     using Microsoft.DocAsCode.Common;
+    using Microsoft.DocAsCode.Plugins;
     using Microsoft.DocAsCode.Utility;
 
     public class Template
@@ -29,6 +30,10 @@ namespace Microsoft.DocAsCode.Build.Engine
         public TemplateType TemplateType { get; }
         public IEnumerable<TemplateResourceInfo> Resources { get; }
 
+        public readonly bool ContainsXrefRegistration;
+        public readonly bool ContainsGlobalRegistration;
+        public readonly bool ContainsModelTransformation;
+
         public Template(string name, string rendererType, string template, string script, ResourceCollection resourceCollection, int maxParallelism)
         {
             if (string.IsNullOrEmpty(name))
@@ -48,15 +53,18 @@ namespace Microsoft.DocAsCode.Build.Engine
                 _preprocessorPool = ResourcePool.Create(() => CreatePreprocessor(script), maxParallelism);
                 try
                 {
-                    using (_preprocessorPool.Rent())
+                    using (var preprocessor = _preprocessorPool.Rent())
                     {
+                        ContainsXrefRegistration = preprocessor.Resource.GetXrefFunc != null;
+                        ContainsGlobalRegistration = preprocessor.Resource.GetGlobalVariablesFunc != null;
+                        ContainsModelTransformation = preprocessor.Resource.TransformModelFunc != null;
                     }
                 }
                 catch (Exception e)
                 {
                     _preprocessorPool = null;
                     Logger.LogWarning($"{ScriptName} is not a valid template preprocessor, ignored: {e.Message}");
-                }
+            }
             }
 
             if (!string.IsNullOrEmpty(template) && resourceCollection != null)
@@ -67,6 +75,35 @@ namespace Microsoft.DocAsCode.Build.Engine
             Resources = ExtractDependentResources(Name);
         }
 
+        public Dictionary<string, XRefSpec> GetXref(object model)
+        {
+            if (_preprocessorPool == null || !ContainsXrefRegistration) return null;
+            using (var lease = _preprocessorPool.Rent())
+            {
+                var obj = lease.Resource.GetXrefFunc(model);
+                // TODO: check type and convert
+                return obj as Dictionary<string, XRefSpec>;
+            }
+        }
+
+        /// <summary>
+        /// { toc:
+        ///   { a: b}
+        /// }
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public IDictionary<string, object> GetGlobalVariables(IDictionary<string, object> globalVariables, object model)
+        {
+            if (_preprocessorPool == null || !ContainsGlobalRegistration) return globalVariables;
+            using (var lease = _preprocessorPool.Rent())
+            {
+                var obj = lease.Resource.GetGlobalVariablesFunc(globalVariables, model);
+                // TODO: check type and convert
+                return obj as IDictionary<string, object>;
+            }
+        }
+
         /// <summary>
         /// Transform from raw model to view model
         /// TODO: refactor to merge model and attrs into one input model
@@ -74,12 +111,12 @@ namespace Microsoft.DocAsCode.Build.Engine
         /// <param name="model">The raw model</param>
         /// <param name="attrs">The system generated attributes</param>
         /// <returns>The view model</returns>
-        public object TransformModel(object model, object attrs, object global)
+        public object TransformModel(object model)
         {
-            if (_preprocessorPool == null) return model;
+            if (_preprocessorPool == null || !ContainsModelTransformation) return model;
             using (var lease = _preprocessorPool.Rent())
             {
-                return lease.Resource.Process(model, attrs, global);
+                return lease.Resource.TransformModelFunc(model);
             }
         }
 
@@ -98,19 +135,20 @@ namespace Microsoft.DocAsCode.Build.Engine
             }
         }
 
-        private string GetRelativeResourceKey(string templateName, string relativePath)
+        private static string GetRelativeResourceKey(string templateName, string relativePath)
         {
             if (string.IsNullOrEmpty(templateName))
             {
                 return relativePath;
             }
+
             // Make sure resource keys are combined using '/'
             return Path.GetDirectoryName(templateName).ToNormalizedPath().ForwardSlashCombine(relativePath);
         }
 
         private static TemplateInfo GetTemplateInfo(string templateName)
         {
-            // Remove folder and .tmpl
+            // Remove folder
             templateName = Path.GetFileName(templateName);
             var splitterIndex = templateName.IndexOf('.');
             if (splitterIndex < 0)

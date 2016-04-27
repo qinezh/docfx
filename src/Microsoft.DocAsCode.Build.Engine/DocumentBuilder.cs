@@ -13,8 +13,9 @@ namespace Microsoft.DocAsCode.Build.Engine
     using System.Reflection;
     using System.Text;
 
+    using Newtonsoft.Json.Linq;
+
     using Microsoft.DocAsCode.Common;
-    using Microsoft.DocAsCode.DataContracts.Common;
     using Microsoft.DocAsCode.Plugins;
     using Microsoft.DocAsCode.Utility;
 
@@ -107,9 +108,20 @@ namespace Microsoft.DocAsCode.Build.Engine
 
                         // Use manifest from now on
                         UpdateContext(context);
+
+                        // Template can feed back xref map, actually, the anchor # location can only be determined in template
+                        FeedXRefMap(manifest, context);
+
                         UpdateHref(manifest, context);
 
-                        var generatedManifest = processor.Process(manifest.Select(s => s.Item).ToList(), context, parameters.ApplyTemplateSettings);
+                        // Afterwards, m.Item.Model.Content is always IDictionary
+                        ApplySystemMetadata(manifest, context);
+
+                        // Register global variables after href are all updated
+                        IDictionary<string, object> globalVariables = FeedGlobalVariables(processor.DefaultGlobalVariables, manifest, context);
+
+                        // processor to add global variable to the model
+                        var generatedManifest = processor.Process(manifest.Select(s => s.Item).ToList(), context, parameters.ApplyTemplateSettings, globalVariables);
 
                         ExportXRefMap(parameters, context);
 
@@ -191,6 +203,87 @@ namespace Microsoft.DocAsCode.Build.Engine
                 Postbuild(processor, hostService);
                 Logger.LogVerbose($"Processor {processor.Name}: Generating manifest...");
             }
+        }
+
+        private void FeedXRefMap(List<ManifestItemWithContext> manifest, IDocumentBuildContext context)
+        {
+            Logger.LogVerbose($"Feeding xref map...");
+            manifest.RunAll(m =>
+            {
+                if (m.TemplateBundle == null)
+                {
+                    return;
+                }
+
+                using (new LoggerFileScope(m.FileModel.LocalPathFromRepoRoot))
+                {
+                    Logger.LogVerbose($"Feed xref map from template for {m.Item.DocumentType}...");
+                    m.TemplateBundle.FeedXRefMap(m.Item, context);
+                }
+            });
+        }
+
+        private void ApplySystemMetadata(List<ManifestItemWithContext> manifest, IDocumentBuildContext context)
+        {
+            Logger.LogVerbose($"Applying system metadata to manifest...");
+
+            // Add system attributes
+            var systemMetadataGenerator = new SystemMetadataGenerator(context);
+
+            manifest.RunAll(m =>
+            {
+                using (new LoggerFileScope(m.FileModel.LocalPathFromRepoRoot))
+                {
+                    Logger.LogVerbose($"Generating system metadata...");
+
+                    // TODO: use weak type for system attributes from the beginning
+                    var systemAttrs = systemMetadataGenerator.Generate(m.Item);
+                    var metadata = (JObject)ConvertToObjectHelper.ConvertStrongTypeToJObject(systemAttrs);
+                    // Change file model to weak type
+                    var model = m.Item.Model.Content;
+                    var modelAsJObject = ConvertToObjectHelper.ConvertStrongTypeToJObject(model) as JObject;
+                    if (modelAsJObject != null)
+                    {
+                        foreach (var token in modelAsJObject)
+                        {
+                            // Overwrites the existing system metadata if the same key is defined in document model
+                            metadata[token.Key] = token.Value;
+                        }
+                    }
+                    else
+                    {
+                        Logger.LogWarning("Input model is not an Object model, it will be wrapped into an Object model. Please use --exportRawModel to view the wrapped model");
+                        metadata["model"] = JToken.FromObject(model);
+                    }
+
+                    // Append system metadata to model
+                    m.Item.Model.Content = (IDictionary<string, object>)ConvertToObjectHelper.ConvertJObjectToObject(metadata);
+                }
+            });
+        }
+
+        private IDictionary<string, object> FeedGlobalVariables(IDictionary<string, object> initialGlobalVariables, List<ManifestItemWithContext> manifest, IDocumentBuildContext context)
+        {
+            Logger.LogVerbose($"Feeding global variables from template...");
+
+            // E.g. we can set TOC model to be globally shared by every data model
+            // Make sure it is single thread
+            IDictionary<string, object> metadata = initialGlobalVariables == null ? new Dictionary<string, object>() : new Dictionary<string, object>(initialGlobalVariables);
+            manifest.RunAll(m =>
+            {
+                if (m.TemplateBundle == null)
+                {
+                    return;
+                }
+
+                using (new LoggerFileScope(m.FileModel.LocalPathFromRepoRoot))
+                {
+                    Logger.LogVerbose($"Load global variables from template for {m.Item.DocumentType}...");
+                    metadata = m.TemplateBundle.GetGlobalVariables(m.Item, metadata, context);
+                }
+            });
+
+            return metadata;
         }
 
         private void UpdateHref(List<ManifestItemWithContext> manifest, IDocumentBuildContext context)

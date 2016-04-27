@@ -5,6 +5,10 @@ namespace Microsoft.DocAsCode.Build.Engine
 {
     public interface ITemplatePreprocessor
     {
-        object Process(params object[] args);
+        FuncWithParams GetXrefFunc { get; }
+        FuncWithParams GetGlobalVariablesFunc { get; }
+        FuncWithParams TransformModelFunc { get; }
     }
+
+    public delegate object FuncWithParams(params object[] args);
 }

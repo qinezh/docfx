@@ -15,13 +15,15 @@ namespace Microsoft.DocAsCode.Build.Engine
 
     public class TemplateModelTransformer
     {
+        private const string GlobalVariableKey = "__global";
+
         private readonly DocumentBuildContext _context;
         private readonly ApplyTemplateSettings _settings;
         private readonly SystemMetadataGenerator _systemMetadataGenerator;
         private readonly TemplateCollection _templateCollection;
-        private readonly object _globalVariables;
+        private readonly IDictionary<string, object> _globalVariables;
 
-        public TemplateModelTransformer(DocumentBuildContext context, TemplateCollection templateCollection, ApplyTemplateSettings settings, object globals)
+        public TemplateModelTransformer(DocumentBuildContext context, TemplateCollection templateCollection, ApplyTemplateSettings settings, IDictionary<string, object> globals)
         {
             if (context == null)
             {
@@ -42,12 +44,14 @@ namespace Microsoft.DocAsCode.Build.Engine
         /// <returns></returns>
         public TemplateManifestItem Transform(ManifestItem item)
         {
+            if (item.Model == null || item.Model.Content == null) throw new ArgumentNullException("Content for item.Model should not be null!");
+            var model = (IDictionary<string, object>)item.Model.Content;
+            model = AppendGlobalMetadata(model);
             if (_settings.Options.HasFlag(ApplyTemplateOptions.ExportRawModel))
             {
-                ExportModel(item.Model.Content, item.FileWithoutExtension, _settings.RawModelExportSettings);
+                ExportModel(model, item.FileWithoutExtension, _settings.RawModelExportSettings);
             }
 
-            if (item.Model == null || item.Model.Content == null) throw new ArgumentNullException("Content for item.Model should not be null!");
             var manifestItem = new TemplateManifestItem
             {
                 DocumentType = item.DocumentType,
@@ -73,10 +77,9 @@ namespace Microsoft.DocAsCode.Build.Engine
             HashSet<string> missingUids = new HashSet<string>();
 
             // Must convert to JObject first as we leverage JsonProperty as the property name for the model
-            var model = ConvertToObjectHelper.ConvertStrongTypeToJObject(item.Model.Content);
-            var systemAttrs = _systemMetadataGenerator.Generate(item);
             foreach (var template in templateBundle.Templates)
             {
+                if (!template.ContainsModelTransformation) continue;
                 var extension = template.Extension;
                 string outputFile = item.FileWithoutExtension + extension;
                 string outputPath = Path.Combine(outputDirectory, outputFile);
@@ -85,7 +88,7 @@ namespace Microsoft.DocAsCode.Build.Engine
                 object viewModel = null;
                 try
                 {
-                    viewModel = template.TransformModel(model, systemAttrs, _globalVariables);
+                    viewModel = template.TransformModel(model);
                 }
                 catch (Exception e)
                 {
@@ -144,6 +147,22 @@ namespace Microsoft.DocAsCode.Build.Engine
             }
 
             return manifestItem;
+        }
+
+        private IDictionary<string, object> AppendGlobalMetadata(IDictionary<string, object> model)
+        {
+            if (_globalVariables == null)
+            {
+                return model;
+            }
+
+            if (model.ContainsKey(GlobalVariableKey))
+            {
+                Logger.LogWarning($"Data model contains key {GlobalVariableKey}, {GlobalVariableKey} is to keep system level global metadata and is not allowed to overwrite. The {GlobalVariableKey} property inside data model will be ignored.");
+            }
+
+            model[GlobalVariableKey] = _globalVariables;
+            return model;
         }
 
         private static string ExportModel(object model, string modelFileRelativePath, ExportSettings settings)
