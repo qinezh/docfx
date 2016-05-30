@@ -7,57 +7,59 @@ namespace Microsoft.DocAsCode.Build.Common
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Text.RegularExpressions;
 
     using Microsoft.DocAsCode.Common;
     using Microsoft.DocAsCode.DataContracts.Common;
+    using Microsoft.DocAsCode.MarkdownLite;
 
-    /// <summary>
-    /// Match yaml header from markdown files.
-    /// YAML HEADER Syntax
-    /// 1. Started with a new line
-    /// 2. Followed by three dashes `---` as a line, spaces are allowed before 
-    /// 3. Followed by and must followed by `uid: `
-    /// 4. Followed by other properties in YAML format
-    /// 5. Ended with three dashes `---` and environment newline as a line, spaces are allowed before 
-    /// </summary>
     public static class YamlHeaderParser
     {
-        private static readonly List<string> RequiredProperties = new List<string> { Constants.PropertyName.Uid };
-
-        // If is not the end of the file, then \n should be appended to ---
-        public static readonly Regex YamlHeaderRegex = new Regex(@"((((?!\n)\s)*\n)|^)((?!\n)\s)*\-\-\-((?!\n)\s)*\n((?!\n)\s)*(?<content>uid:.*?)\s*\-\-\-((?!\n)\s)*\n", RegexOptions.Compiled | RegexOptions.Singleline);
-
-        public static IList<MatchDetail> Select(string input)
+        public static IEnumerable<MatchDetail> Select(string html)
         {
-            if (string.IsNullOrEmpty(input)) return null;
-            var yamlHeader = YamlHeaderRegex.Matches(input);
-            return (from Match item in yamlHeader select SelectSingle(item, input)).ToList();
+            if (string.IsNullOrEmpty(html)) return null;
+            var parts = YamlHtmlPart.SplitYamlHtml(html);
+
+            return parts.Any() ? parts.Select(SelectSingle) : Enumerable.Empty<MatchDetail>();
         }
 
-        private static MatchDetail SelectSingle(Match match, string input)
-        {
-            var wholeMatch = match.Groups[0];
+        private static readonly List<string> RequiredProperties = new List<string> { Constants.PropertyName.Uid };
 
-            string content = match.Groups["content"].Value;
-            Dictionary<string, object> properties;
-            string message;
-            if (!TryExtractProperties(content, RequiredProperties, out properties, out message))
+        private static MatchDetail SelectSingle(YamlHtmlPart part)
+        {
+            var doc = part.Doc;
+            Dictionary<string, object> properties = null;
+            Dictionary<string, object> overridenProperties = null;
+            var node = doc.DocumentNode.SelectSingleNode("//yamlheader");
+            if (node != null)
             {
-                Logger.Log(LogLevel.Warning, message);
-                return null;
+                var content = StringHelper.HtmlDecode(node.InnerHtml);
+                string message;
+                
+                if (!TryExtractProperties(content, RequiredProperties, out properties, out message))
+                {
+                    Logger.Log(LogLevel.Warning, message);
+                    return null;
+                }
+
+                overridenProperties = RemoveRequiredProperties(properties, RequiredProperties);
+                node.Remove();
             }
 
-            var overridenProperties = RemoveRequiredProperties(properties, RequiredProperties);
+            string conceptual;
+            using (var sw = new StringWriter())
+            {
+                doc.Save(sw);
+                conceptual = sw.ToString();
+            }
 
-            var location = Location.GetLocation(input, wholeMatch.Index, wholeMatch.Length);
             return new MatchDetail
             {
-                           Id = properties[Constants.PropertyName.Uid].ToString(),
-                           MatchedSection =
-                               new Section { Key = wholeMatch.Value, Locations = new List<Location> { location } },
-                           Properties = overridenProperties,
-                       };
+                Id = properties[Constants.PropertyName.Uid].ToString(),
+                StartLine = part.StartLine,
+                EndLine = part.EndLine,
+                Conceptural = conceptual,
+                Properties = overridenProperties
+            };
         }
 
         private static Dictionary<string, object> RemoveRequiredProperties(Dictionary<string, object> properties, IEnumerable<string> requiredProperties)
@@ -110,7 +112,7 @@ namespace Microsoft.DocAsCode.Build.Common
             {
                 // Yaml header could be very long.. substring it
                 content = content?.Split('\n').FirstOrDefault()?.Trim();
-                message += string.Format(@"yaml header '{0}' is not in a valid YAML format: {1}.", content, e.Message);
+                message += $@"yaml header '{content}' is not in a valid YAML format: {e.Message}.";
                 return false;
             }
         }

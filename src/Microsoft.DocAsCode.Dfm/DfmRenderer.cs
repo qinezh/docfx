@@ -51,7 +51,11 @@ namespace Microsoft.DocAsCode.Dfm
             {
                 return StringBuffer.Empty;
             }
-            StringBuffer result = "<yamlheader>";
+            var startLine = token.SourceInfo.LineNumber;
+            var endLine = startLine + token.Content.Split('\n').Length + 1;
+            StringBuffer result = "<yamlheader";
+            result += $" start={startLine} end={endLine}";
+            result += ">";
             result += StringHelper.HtmlEncode(token.Content);
             return result + "</yamlheader>";
         }

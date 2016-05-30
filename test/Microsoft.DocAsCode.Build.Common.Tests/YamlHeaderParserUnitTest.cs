@@ -3,6 +3,8 @@
 
 namespace Microsoft.DocAsCode.Build.Common.Tests
 {
+    using System.Linq;
+
     using Xunit;
 
     [Trait("Owner", "lianwei")]
@@ -13,47 +15,32 @@ namespace Microsoft.DocAsCode.Build.Common.Tests
         [Fact]
         public void TestYamlHeaderParser()
         {
-            // spaces are allowed
-            string input = @"
-                            ---      
-                             uid: abc
-                            ---
-                            ";
-            var yamlHeaders = YamlHeaderParser.Select(input);
+            var input = @"<yamlheader>uid: Cat\nname: Tom</yamlheader>";
+            var yamlHeaders = YamlHeaderParser.Select(input).ToList();
             Assert.Equal(1, yamlHeaders.Count);
-            Assert.Equal("abc", yamlHeaders[0].Id);
 
-            // --- Should also work
-            input = @"---      
-                             uid: abc
-                            ---
-                            ";
-            yamlHeaders = YamlHeaderParser.Select(input);
-            Assert.Equal(1, yamlHeaders.Count);
-            Assert.Equal("abc", yamlHeaders[0].Id);
+            Assert.Equal("Cat", yamlHeaders[0].Id);
+            Assert.Equal("Tom", yamlHeaders[0].Properties["name"].ToString());
+            Assert.Equal(string.Empty, yamlHeaders[0].Conceptural);
 
             // --- should be start with uid
-            input = @"
-                            ---      
-                             id: abc
-                            ---
-                            ";
-            yamlHeaders = YamlHeaderParser.Select(input);
+            input = @"<yamlheader>id: Cat\nname: Tom</yamlheader>";
+            yamlHeaders = YamlHeaderParser.Select(input).ToList();
             Assert.Equal(0, yamlHeaders.Count);
 
-            // Multi-YamlHeader Test
-            input = @"---
-uid: abc
----
-conceptual
----
-uid: efg
----
-";
-            yamlHeaders = YamlHeaderParser.Select(input);
+            // multi yamlheader test
+            input =
+                @"<yamlheader>id: Cat\nname: Tom</yamlheader><p>Conceptual</p><yamlheader>id: Dog\nname: Jerry</yamlheader>";
+            yamlHeaders = YamlHeaderParser.Select(input).ToList();
             Assert.Equal(2, yamlHeaders.Count);
-            Assert.Equal("abc", yamlHeaders[0].Id);
-            Assert.Equal("efg", yamlHeaders[1].Id);
+
+            Assert.Equal("Cat", yamlHeaders[0].Id);
+            Assert.Equal("Tom", yamlHeaders[0].Properties["name"].ToString());
+            Assert.Equal("Conceptual", yamlHeaders[0].Conceptural);
+
+            Assert.Equal("Dog", yamlHeaders[1].Id);
+            Assert.Equal("Jerry", yamlHeaders[1].Properties["name"].ToString());
+            Assert.Equal(string.Empty, yamlHeaders[1].Conceptural);
         }
     }
 }

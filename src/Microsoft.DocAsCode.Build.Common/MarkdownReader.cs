@@ -9,15 +9,21 @@ namespace Microsoft.DocAsCode.Build.Common
 
     using Microsoft.DocAsCode.DataContracts.Common;
     using Microsoft.DocAsCode.Utility;
+    using Microsoft.DocAsCode.Plugins;
 
     public class MarkdownReader
     {
-        public static List<OverwriteDocumentModel> ReadMarkdownAsOverwrite(string baseDir, string file)
+        public static List<OverwriteDocumentModel> ReadMarkdownAsOverwrite(IHostService host, FileModel model)
         {
             // Order the list from top to bottom
-            var list = ReadMarkDownCore(Path.Combine(baseDir, file)).ToList();
-            list.Reverse();
-            return list;
+            var file = model.FileAndType;
+            var markdown = File.ReadAllText(file.FullPath);
+            var mr = host.MarkupMultiple(markdown, file);
+            
+            ((HashSet<string>)model.Properties.LinkToFiles).UnionWith(mr.LinkToFiles);
+            ((HashSet<string>)model.Properties.LinkToUids).UnionWith(mr.LinkToUids);
+            
+            return ReadMarkDownCore(file.FullPath, mr.Html).ToList();
         }
 
         public static Dictionary<string, object> ReadMarkdownAsConceptual(string baseDir, string file)
@@ -33,49 +39,26 @@ namespace Microsoft.DocAsCode.Build.Common
             };
         }
 
-        private static IEnumerable<OverwriteDocumentModel> ReadMarkDownCore(string file)
+        private static IEnumerable<OverwriteDocumentModel> ReadMarkDownCore(string file, string html)
         {
-            var content = File.ReadAllText(file);
             var repoInfo = GitUtility.GetGitDetail(file);
-            var lineIndex = GetLineIndex(content).ToList();
-            var yamlDetails = YamlHeaderParser.Select(content);
-            var sections = from detail in yamlDetails
-                           let id = detail.Id
-                           from location in detail.MatchedSection.Locations
-                           orderby location.StartLocation descending
-                           select new { Detail = detail, Id = id, Location = location };
-            var currentEnd = Coordinate.GetCoordinate(content);
-            foreach (var item in sections)
-            {
-                if (!string.IsNullOrEmpty(item.Id))
-                {
-                    int start = lineIndex[item.Location.EndLocation.Line] + item.Location.EndLocation.Column + 1;
-                    int end = lineIndex[currentEnd.Line] + currentEnd.Column + 1;
-                    yield return new OverwriteDocumentModel
-                    {
-                        Uid = item.Id,
-                        Metadata = item.Detail.Properties,
-                        Conceptual = content.Substring(start, end - start),
-                        Documentation = new SourceDetail
-                        {
-                            Remote = repoInfo,
-                            StartLine = item.Location.EndLocation.Line,
-                            EndLine = currentEnd.Line,
-                            Path = Path.GetFullPath(file).ToDisplayPath()
-                        }
-                    };
-                }
-                currentEnd = item.Location.StartLocation;
-            }
-        }
+            var yamlDetails = YamlHeaderParser.Select(html);
 
-        private static IEnumerable<int> GetLineIndex(string content)
-        {
-            var index = 0;
-            while (index >= 0)
+            foreach (var detail in yamlDetails)
             {
-                yield return index;
-                index = content.IndexOf('\n', index + 1);
+                yield return new OverwriteDocumentModel
+                {
+                    Uid = detail.Id,
+                    Metadata = detail.Properties,
+                    Conceptual = detail.Conceptural,
+                    Documentation = new SourceDetail
+                    {
+                        Remote = repoInfo,
+                        StartLine = detail.StartLine,
+                        EndLine = detail.EndLine,
+                        Path = Path.GetFullPath(file).ToDisplayPath()
+                    }
+                };
             }
         }
     }

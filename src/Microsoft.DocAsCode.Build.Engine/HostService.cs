@@ -14,10 +14,10 @@ namespace Microsoft.DocAsCode.Build.Engine
     using HtmlAgilityPack;
 
     using Microsoft.DocAsCode.Common;
-    using Microsoft.DocAsCode.Dfm;
     using Microsoft.DocAsCode.MarkdownLite;
     using Microsoft.DocAsCode.Plugins;
     using Microsoft.DocAsCode.Utility;
+    using Microsoft.DocAsCode.Build.Common;
 
     [Export(typeof(IHostService))]
     internal sealed class HostService : IHostService, IDisposable
@@ -81,11 +81,43 @@ namespace Microsoft.DocAsCode.Build.Engine
             }
         }
 
+        public MarkupResult MarkupMultiple(string markdown, FileAndType ft)
+        {
+            try
+            {
+                var html = MarkdownService.Markup(markdown, ft.File);
+                var result = new MarkupResult
+                {
+                    Html = html
+                };
+
+                var parts = YamlHtmlPart.SplitYamlHtml(html);
+                var docs = parts.Select(part => part.Doc);
+                var mrs = docs.Select(doc => MarkupCore(doc, ft));
+                foreach (var mr in mrs)
+                {
+                    result.LinkToFiles = result.LinkToFiles.Union(mr.LinkToFiles).ToImmutableArray();
+                    result.LinkToUids = result.LinkToUids.Union(mr.LinkToUids);
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Fail("Markup failed!");
+                Logger.LogWarning($"Markup failed:{Environment.NewLine}  Markdown: {markdown}{Environment.NewLine}  Details:{ex.ToString()}");
+                return new MarkupResult { Html = markdown };
+            }
+        }
+
         public MarkupResult Markup(string markdown, FileAndType ft)
         {
             try
             {
-                return MarkupCore(markdown, ft);
+                var html = MarkdownService.Markup(markdown, ft.File);
+                var doc = new HtmlDocument();
+                doc.LoadHtml(html);
+
+                return MarkupCore(doc, ft);
             }
             catch (Exception ex)
             {
@@ -179,11 +211,8 @@ namespace Microsoft.DocAsCode.Build.Engine
             }
         }
 
-        private MarkupResult MarkupCore(string markdown, FileAndType ft)
+        private MarkupResult MarkupCore(HtmlDocument doc, FileAndType ft)
         {
-            var html = MarkdownService.Markup(markdown, ft.File);
-            var doc = new HtmlDocument();
-            doc.LoadHtml(html);
             var result = new MarkupResult();
 
             var node = doc.DocumentNode.SelectSingleNode("//yamlheader");

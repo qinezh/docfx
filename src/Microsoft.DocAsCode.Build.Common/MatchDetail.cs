@@ -7,8 +7,6 @@ namespace Microsoft.DocAsCode.Build.Common
 
     public class MatchDetail
     {
-        public Section MatchedSection { get; set; }
-
         /// <summary>
         /// The Id from regular expression's content group, e.g. ABC from @ABC
         /// </summary>
@@ -18,6 +16,8 @@ namespace Microsoft.DocAsCode.Build.Common
         public int StartLine { get; set; }
 
         public int EndLine { get; set; }
+
+        public string Conceptural { get; set; }
 
         public Dictionary<string, object> Properties { get; set; } 
 
