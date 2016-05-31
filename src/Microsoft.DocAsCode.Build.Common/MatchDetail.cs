@@ -11,6 +11,7 @@ namespace Microsoft.DocAsCode.Build.Common
         /// The Id from regular expression's content group, e.g. ABC from @ABC
         /// </summary>
         public string Id { get; set; }
+
         public string Path { get; set; }
 
         public int StartLine { get; set; }

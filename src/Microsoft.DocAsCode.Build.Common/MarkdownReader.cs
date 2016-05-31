@@ -19,10 +19,10 @@ namespace Microsoft.DocAsCode.Build.Common
             var file = model.FileAndType;
             var markdown = File.ReadAllText(file.FullPath);
             var mr = host.MarkupMultiple(markdown, file);
-            
+
             ((HashSet<string>)model.Properties.LinkToFiles).UnionWith(mr.LinkToFiles);
             ((HashSet<string>)model.Properties.LinkToUids).UnionWith(mr.LinkToUids);
-            
+
             return ReadMarkDownCore(file.FullPath, mr.Html).ToList();
         }
 

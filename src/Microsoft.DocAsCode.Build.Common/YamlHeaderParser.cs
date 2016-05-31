@@ -20,7 +20,7 @@ namespace Microsoft.DocAsCode.Build.Common
             var parts = YamlHtmlPart.SplitYamlHtml(html);
 
             var details = parts.Select(SelectSingle).Where(o => o != null);
-            return details != null ? details : Enumerable.Empty<MatchDetail>();
+            return details ?? Enumerable.Empty<MatchDetail>();
         }
 
         private static readonly List<string> RequiredProperties = new List<string> { Constants.PropertyName.Uid };
