@@ -15,32 +15,31 @@ namespace Microsoft.DocAsCode.Build.Common.Tests
         [Fact]
         public void TestYamlHeaderParser()
         {
-            var input = @"<yamlheader>uid: Cat\nname: Tom</yamlheader>";
+            var input = "<yamlheader>uid: Cat\nname: Tom</yamlheader>";
             var yamlHeaders = YamlHeaderParser.Select(input).ToList();
             Assert.Equal(1, yamlHeaders.Count);
 
             Assert.Equal("Cat", yamlHeaders[0].Id);
             Assert.Equal("Tom", yamlHeaders[0].Properties["name"].ToString());
-            Assert.Equal(string.Empty, yamlHeaders[0].Conceptural);
+            Assert.Equal(string.Empty, yamlHeaders[0].Conceptual);
 
             // --- should be start with uid
-            input = @"<yamlheader>id: Cat\nname: Tom</yamlheader>";
+            input = "<yamlheader>id: Cat\nname: Tom</yamlheader>";
             yamlHeaders = YamlHeaderParser.Select(input).ToList();
             Assert.Equal(0, yamlHeaders.Count);
 
             // multi yamlheader test
-            input =
-                @"<yamlheader>id: Cat\nname: Tom</yamlheader><p>Conceptual</p><yamlheader>id: Dog\nname: Jerry</yamlheader>";
+            input = "<yamlheader>uid: Cat\nname: Tom</yamlheader><p>Conceptual</p><yamlheader>uid: Dog\nname: Jerry</yamlheader>";
             yamlHeaders = YamlHeaderParser.Select(input).ToList();
             Assert.Equal(2, yamlHeaders.Count);
 
             Assert.Equal("Cat", yamlHeaders[0].Id);
             Assert.Equal("Tom", yamlHeaders[0].Properties["name"].ToString());
-            Assert.Equal("Conceptual", yamlHeaders[0].Conceptural);
+            Assert.Equal("<p>Conceptual</p>", yamlHeaders[0].Conceptual);
 
             Assert.Equal("Dog", yamlHeaders[1].Id);
             Assert.Equal("Jerry", yamlHeaders[1].Properties["name"].ToString());
-            Assert.Equal(string.Empty, yamlHeaders[1].Conceptural);
+            Assert.Equal(string.Empty, yamlHeaders[1].Conceptual);
         }
     }
 }

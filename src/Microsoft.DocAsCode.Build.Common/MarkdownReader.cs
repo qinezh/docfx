@@ -39,7 +39,7 @@ namespace Microsoft.DocAsCode.Build.Common
             };
         }
 
-        private static IEnumerable<OverwriteDocumentModel> ReadMarkDownCore(string file, string html)
+        public static IEnumerable<OverwriteDocumentModel> ReadMarkDownCore(string file, string html)
         {
             var repoInfo = GitUtility.GetGitDetail(file);
             var yamlDetails = YamlHeaderParser.Select(html);
@@ -50,7 +50,7 @@ namespace Microsoft.DocAsCode.Build.Common
                 {
                     Uid = detail.Id,
                     Metadata = detail.Properties,
-                    Conceptual = detail.Conceptural,
+                    Conceptual = detail.Conceptual,
                     Documentation = new SourceDetail
                     {
                         Remote = repoInfo,

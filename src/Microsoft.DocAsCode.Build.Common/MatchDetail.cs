@@ -17,7 +17,7 @@ namespace Microsoft.DocAsCode.Build.Common
 
         public int EndLine { get; set; }
 
-        public string Conceptural { get; set; }
+        public string Conceptual { get; set; }
 
         public Dictionary<string, object> Properties { get; set; } 
 

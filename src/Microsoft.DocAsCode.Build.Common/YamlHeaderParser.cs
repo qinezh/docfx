@@ -19,7 +19,8 @@ namespace Microsoft.DocAsCode.Build.Common
             if (string.IsNullOrEmpty(html)) return null;
             var parts = YamlHtmlPart.SplitYamlHtml(html);
 
-            return parts.Any() ? parts.Select(SelectSingle) : Enumerable.Empty<MatchDetail>();
+            var details = parts.Select(SelectSingle).Where(o => o != null);
+            return details != null ? details : Enumerable.Empty<MatchDetail>();
         }
 
         private static readonly List<string> RequiredProperties = new List<string> { Constants.PropertyName.Uid };
@@ -57,7 +58,7 @@ namespace Microsoft.DocAsCode.Build.Common
                 Id = properties[Constants.PropertyName.Uid].ToString(),
                 StartLine = part.StartLine,
                 EndLine = part.EndLine,
-                Conceptural = conceptual,
+                Conceptual = conceptual,
                 Properties = overridenProperties
             };
         }
