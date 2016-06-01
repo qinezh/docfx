@@ -3,15 +3,29 @@
 
 namespace Microsoft.DocAsCode.Build.Common
 {
+    using System.Linq;
     using System.Collections.Generic;
+    using System.Collections.Immutable;
 
     using HtmlAgilityPack;
 
     public class YamlHtmlPart
     {
-        public HtmlDocument Doc { get; set; }
+        public string OriginHtml { get; set; }
+
+        public string Conceptual { get; set; }
+
+        public string SourceFile { get; set; }
+
         public int StartLine { get; set; }
+
         public int EndLine { get; set; }
+
+        public ImmutableArray<string> LinkToFiles { get; set; } = ImmutableArray<string>.Empty;
+
+        public ImmutableHashSet<string> LinkToUids { get; set; } = ImmutableHashSet<string>.Empty;
+
+        public ImmutableDictionary<string, object> YamlHeader { get; set; } = ImmutableDictionary<string, object>.Empty;
 
         public static IList<YamlHtmlPart> SplitYamlHtml(string html)
         {
@@ -20,38 +34,32 @@ namespace Microsoft.DocAsCode.Build.Common
             var parts = new List<YamlHtmlPart>();
 
             var nodes = doc.DocumentNode.SelectNodes("//yamlheader");
-            if (nodes == null)
-            {
-                return parts;
-            }
+            if (nodes == null) return parts;
 
             foreach (var node in nodes)
             {
-                var part = new HtmlDocument();
+                var sourceFile = node.GetAttributeValue("sourceFile", "NotFound");
+                var startLine = node.GetAttributeValue("start", -1);
+                var endLine = node.GetAttributeValue("end", -1);
 
-                var startLineStr = node.GetAttributeValue("start", "-1");
-                var endLineStr = node.GetAttributeValue("end", "-1");
+                parts.Add(new YamlHtmlPart { SourceFile = sourceFile, StartLine = startLine, EndLine = endLine });
+            }
 
-                int startLine, endLine;
-                if (!int.TryParse(startLineStr, out startLine))
+            var startIndexes = nodes.Select(node => node.StreamPosition).Skip(1).ToList();
+            startIndexes.Add(html.Length);
+            var endIndexes = nodes.Select(node => node.StreamPosition + node.OuterHtml.Replace("\"", "").Length - 1).ToList();
+
+            for (var i = 0; i < parts.Count; i++)
+            {
+                if (i == 0)
                 {
-                    startLine = -1;
+                    parts[i].OriginHtml = html.Substring(0, startIndexes[0]);
                 }
-                if (!int.TryParse(endLineStr, out endLine))
+                else
                 {
-                    endLine = -1;
+                    parts[i].OriginHtml = html.Substring(startIndexes[i-1], startIndexes[i] - startIndexes[i-1]);
                 }
-
-                var currentNode = node;
-
-                do
-                {
-                    var nextNode = currentNode.NextSibling;
-                    part.DocumentNode.AppendChild(currentNode);
-                    currentNode = nextNode;
-                } while (currentNode != null && currentNode.Name != "yamlheader");
-
-                parts.Add(new YamlHtmlPart { Doc = part, StartLine = startLine, EndLine = endLine });
+                parts[i].Conceptual = html.Substring(endIndexes[i] + 1, startIndexes[i] - endIndexes[i] - 1);
             }
 
             return parts;

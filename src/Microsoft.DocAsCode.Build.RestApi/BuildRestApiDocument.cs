@@ -69,7 +69,7 @@ namespace Microsoft.DocAsCode.Build.RestApi
         private static void BuildItem(IHostService host, FileModel model)
         {
             var file = model.FileAndType;
-            var overwrites = MarkdownReader.ReadMarkdownAsOverwrite(host, model);
+            var overwrites = MarkdownReader.ReadMarkdownAsOverwrite(host, model.FileAndType).ToList();
             model.Content = overwrites;
             model.LocalPathFromRepoRoot = overwrites[0].Documentation?.Remote?.RelativePath ?? Path.Combine(file.BaseDir, file.File).ToDisplayPath();
             model.Uids = (from item in overwrites

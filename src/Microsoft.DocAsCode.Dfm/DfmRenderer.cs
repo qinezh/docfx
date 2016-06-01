@@ -53,8 +53,10 @@ namespace Microsoft.DocAsCode.Dfm
             }
             var startLine = token.SourceInfo.LineNumber;
             var endLine = startLine + token.Content.Split('\n').Length + 1;
+            var sourceFile = token.SourceInfo.File;
+            sourceFile = string.IsNullOrEmpty(sourceFile) ? "NotFound" : sourceFile;
             StringBuffer result = "<yamlheader";
-            result += $" start={startLine} end={endLine}";
+            result += $" start={startLine} end={endLine} sourceFile={sourceFile}";
             result += ">";
             result += StringHelper.HtmlEncode(token.Content);
             return result + "</yamlheader>";

@@ -3,27 +3,25 @@
 
 namespace Microsoft.DocAsCode.Build.Common
 {
+    using System;
     using System.Collections.Generic;
+    using System.Collections.Immutable;
     using System.IO;
     using System.Linq;
 
     using Microsoft.DocAsCode.DataContracts.Common;
+    using Microsoft.DocAsCode.Common;
     using Microsoft.DocAsCode.Utility;
     using Microsoft.DocAsCode.Plugins;
 
     public class MarkdownReader
     {
-        public static List<OverwriteDocumentModel> ReadMarkdownAsOverwrite(IHostService host, FileModel model)
+        public static IEnumerable<OverwriteDocumentModel> ReadMarkdownAsOverwrite(IHostService host, FileAndType ft)
         {
             // Order the list from top to bottom
-            var file = model.FileAndType;
-            var markdown = File.ReadAllText(file.FullPath);
-            var mr = host.MarkupMultiple(markdown, file);
-
-            ((HashSet<string>)model.Properties.LinkToFiles).UnionWith(mr.LinkToFiles);
-            ((HashSet<string>)model.Properties.LinkToUids).UnionWith(mr.LinkToUids);
-
-            return ReadMarkDownCore(file.FullPath, mr.Html).ToList();
+            var markdown = File.ReadAllText(ft.FullPath);
+            var parts = MarkupMultiple(host, markdown, ft);
+            return parts.Select(part => ReadMarkDownCore(ft.FullPath, part));
         }
 
         public static Dictionary<string, object> ReadMarkdownAsConceptual(string baseDir, string file)
@@ -39,27 +37,118 @@ namespace Microsoft.DocAsCode.Build.Common
             };
         }
 
-        public static IEnumerable<OverwriteDocumentModel> ReadMarkDownCore(string file, string html)
+        private static OverwriteDocumentModel ReadMarkDownCore(string filePath, YamlHtmlPart part)
         {
-            var repoInfo = GitUtility.GetGitDetail(file);
-            var yamlDetails = YamlHeaderParser.Select(html);
+            var repoInfo = GitUtility.GetGitDetail(filePath);
+            var yamlDetail = Select(part);
 
-            foreach (var detail in yamlDetails)
+            return new OverwriteDocumentModel
             {
-                yield return new OverwriteDocumentModel
+                Uid = yamlDetail.Id,
+                Metadata = yamlDetail.Properties,
+                Conceptual = part.Conceptual,
+                Documentation = new SourceDetail
                 {
-                    Uid = detail.Id,
-                    Metadata = detail.Properties,
-                    Conceptual = detail.Conceptual,
-                    Documentation = new SourceDetail
-                    {
-                        Remote = repoInfo,
-                        StartLine = detail.StartLine,
-                        EndLine = detail.EndLine,
-                        Path = Path.GetFullPath(file).ToDisplayPath()
-                    }
-                };
+                    Remote = repoInfo,
+                    StartLine = part.StartLine,
+                    EndLine = part.EndLine,
+                    Path = part.SourceFile
+                }
+            };
+        }
+
+        private static IEnumerable<YamlHtmlPart> MarkupMultiple(IHostService host, string markdown, FileAndType ft)
+        {
+            try
+            {
+                var html = host.MarkupToHtml(markdown, ft);
+                var parts = YamlHtmlPart.SplitYamlHtml(html);
+                foreach (var part in parts)
+                {
+                    var mr = host.MarkupCore(part.OriginHtml, ft, true);
+                    part.LinkToFiles = mr.LinkToFiles;
+                    part.LinkToUids = mr.LinkToUids;
+                    part.YamlHeader = mr.YamlHeader;
+                }
+                return parts;
             }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Fail("Markup failed!");
+                Logger.LogWarning($"Markup failed:{Environment.NewLine}  Markdown: {markdown}{Environment.NewLine}  Details:{ex.ToString()}");
+                return Enumerable.Empty<YamlHtmlPart>();
+            }
+        }
+
+        private static MatchDetail Select(YamlHtmlPart part)
+        {
+            if (part == null)
+            {
+                return null;
+            }
+
+            var properties = part.YamlHeader;
+            string checkPropertyMessage;
+            var checkPropertyStatus = CheckRequiredProperties(properties, RequiredProperties, out checkPropertyMessage);
+            if (!checkPropertyStatus)
+            {
+                throw new InvalidDataException(checkPropertyMessage);
+            }
+
+            var overriden = RemoveRequiredProperties(properties, RequiredProperties);
+
+            return new MatchDetail
+            {
+                Id = properties[Constants.PropertyName.Uid].ToString(),
+                Properties = overriden
+            };
+        }
+
+        private static readonly List<string> RequiredProperties = new List<string> { Constants.PropertyName.Uid };
+
+        private static Dictionary<string, object> RemoveRequiredProperties(ImmutableDictionary<string, object> properties, IEnumerable<string> requiredProperties)
+        {
+            if (properties == null) return null;
+
+            var overridenProperties = new Dictionary<string, object>(properties);
+            foreach (var requiredProperty in requiredProperties)
+            {
+                if (requiredProperty != null) overridenProperties.Remove(requiredProperty);
+            }
+
+            return overridenProperties;
+        }
+
+        private static bool CheckRequiredProperties(ImmutableDictionary<string, object> properties, IEnumerable<string> requiredKeys, out string message)
+        {
+            var requiredKeyExistence = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
+            foreach (var requiredKey in requiredKeys)
+            {
+                bool current;
+                if (!requiredKeyExistence.TryGetValue(requiredKey, out current))
+                {
+                    requiredKeyExistence.Add(requiredKey, false);
+                }
+            }
+
+            foreach (var property in properties)
+            {
+                if (requiredKeyExistence.ContainsKey(property.Key))
+                {
+                    requiredKeyExistence[property.Key] = true;
+                }
+            }
+
+            var notExistsKeys = requiredKeyExistence.Where(s => !s.Value);
+            if (notExistsKeys.Any())
+            {
+                message =
+                    $"Required properties {{{{{string.Join(",", notExistsKeys.Select(s => s.Key))}}}}} are not set. Note that keys are case insensitive.";
+                return false;
+            }
+
+            message = string.Empty;
+            return true;
         }
     }
 }

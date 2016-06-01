@@ -17,10 +17,9 @@ namespace Microsoft.DocAsCode.Build.Engine
     using Microsoft.DocAsCode.MarkdownLite;
     using Microsoft.DocAsCode.Plugins;
     using Microsoft.DocAsCode.Utility;
-    using Microsoft.DocAsCode.Build.Common;
 
     [Export(typeof(IHostService))]
-    internal sealed class HostService : IHostService, IDisposable
+    public sealed class HostService : IHostService, IDisposable
     {
         #region Fields
         private readonly object _syncRoot = new object();
@@ -81,25 +80,11 @@ namespace Microsoft.DocAsCode.Build.Engine
             }
         }
 
-        public MarkupResult MarkupMultiple(string markdown, FileAndType ft)
+        public MarkupResult Markup(string markdown, FileAndType ft)
         {
             try
             {
-                var html = MarkdownService.Markup(markdown, ft.File);
-                var result = new MarkupResult
-                {
-                    Html = html
-                };
-
-                var parts = YamlHtmlPart.SplitYamlHtml(html);
-                var docs = parts.Select(part => part.Doc);
-                var mrs = docs.Select(doc => MarkupCore(doc, ft));
-                foreach (var mr in mrs)
-                {
-                    result.LinkToFiles = result.LinkToFiles.Union(mr.LinkToFiles).ToImmutableArray();
-                    result.LinkToUids = result.LinkToUids.Union(mr.LinkToUids);
-                }
-                return result;
+                return MarkupCore(markdown, ft);
             }
             catch (Exception ex)
             {
@@ -109,22 +94,15 @@ namespace Microsoft.DocAsCode.Build.Engine
             }
         }
 
-        public MarkupResult Markup(string markdown, FileAndType ft)
+        public string MarkupToHtml(string markdown, FileAndType ft)
         {
-            try
-            {
-                var html = MarkdownService.Markup(markdown, ft.File);
-                var doc = new HtmlDocument();
-                doc.LoadHtml(html);
+            return MarkdownService.Markup(markdown, ft.File);
+        }
 
-                return MarkupCore(doc, ft);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.Fail("Markup failed!");
-                Logger.LogWarning($"Markup failed:{Environment.NewLine}  Markdown: {markdown}{Environment.NewLine}  Details:{ex.ToString()}");
-                return new MarkupResult { Html = markdown };
-            }
+        public MarkupResult MarkupCore(string markdown, FileAndType ft, bool isMarkuped = false)
+        {
+            var html = isMarkuped ? markdown : MarkupToHtml(markdown, ft);
+            return ResolveLinks(html, ft);
         }
 
         public void LogVerbose(string message, string file, string line)
@@ -211,8 +189,10 @@ namespace Microsoft.DocAsCode.Build.Engine
             }
         }
 
-        private MarkupResult MarkupCore(HtmlDocument doc, FileAndType ft)
+        private MarkupResult ResolveLinks(string html, FileAndType ft)
         {
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
             var result = new MarkupResult();
 
             var node = doc.DocumentNode.SelectSingleNode("//yamlheader");
@@ -280,6 +260,7 @@ namespace Microsoft.DocAsCode.Build.Engine
             }
             return result;
         }
+
 
         private void HandleUidsChanged(object sender, PropertyChangedEventArgs<ImmutableArray<UidDefinition>> e)
         {

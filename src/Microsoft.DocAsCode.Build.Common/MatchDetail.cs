@@ -12,14 +12,6 @@ namespace Microsoft.DocAsCode.Build.Common
         /// </summary>
         public string Id { get; set; }
 
-        public string Path { get; set; }
-
-        public int StartLine { get; set; }
-
-        public int EndLine { get; set; }
-
-        public string Conceptual { get; set; }
-
         public Dictionary<string, object> Properties { get; set; } 
 
         public override int GetHashCode()

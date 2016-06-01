@@ -75,7 +75,6 @@ namespace Microsoft.DocAsCode.Build.ManagedReference
             }
 
             var parameters = item.Syntax?.Parameters;
-
             if (parameters != null)
             {
                 foreach (var parameter in parameters)
@@ -84,7 +83,6 @@ namespace Microsoft.DocAsCode.Build.ManagedReference
                     linkToUids.Add(parameter.Type);
                 }
             }
-
             if (item.Exceptions != null)
             {
                 foreach (var exception in item.Exceptions)
@@ -104,7 +102,7 @@ namespace Microsoft.DocAsCode.Build.ManagedReference
         private static void BuildItem(IHostService host, FileModel model)
         {
             var file = model.FileAndType;
-            var overwrites = MarkdownReader.ReadMarkdownAsOverwrite(host, model);
+            var overwrites = MarkdownReader.ReadMarkdownAsOverwrite(host, model.FileAndType).ToList();
             model.Content = overwrites;
             model.LocalPathFromRepoRoot = overwrites[0].Documentation?.Remote?.RelativePath ?? Path.Combine(file.BaseDir, file.File).ToDisplayPath();
             model.Uids = (from item in overwrites
@@ -113,8 +111,6 @@ namespace Microsoft.DocAsCode.Build.ManagedReference
                               model.LocalPathFromRepoRoot,
                               item.Documentation.StartLine + 1)).ToImmutableArray();
         }
-
-
 
         private static string Markup(IHostService host, string markdown, FileModel model, Func<string, bool> filter = null)
         {

@@ -13,7 +13,6 @@
     <Compile Include="MatchDetail.cs" />
     <Compile Include="OverwriteDocumentModel.cs" />
     <Compile Include="OverwriteDocumentReader.cs" />
-    <Compile Include="YamlHeaderParser.cs" />
     <Compile Include="YamlHtmlPart.cs" />
   </ItemGroup>
   <ItemGroup>
