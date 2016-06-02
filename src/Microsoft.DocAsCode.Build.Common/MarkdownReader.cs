@@ -20,8 +20,8 @@ namespace Microsoft.DocAsCode.Build.Common
         {
             // Order the list from top to bottom
             var markdown = File.ReadAllText(ft.FullPath);
-            var parts = MarkupMultiple(host, markdown, ft);
-            return parts.Select(part => ReadMarkDownCore(ft.FullPath, part));
+            var mrs = host.MarkupMultiple(markdown, ft);
+            return mrs.Select(mr => GenerateOverwriteModel(ft.FullPath, mr));
         }
 
         public static Dictionary<string, object> ReadMarkdownAsConceptual(string baseDir, string file)
@@ -37,57 +37,11 @@ namespace Microsoft.DocAsCode.Build.Common
             };
         }
 
-        private static OverwriteDocumentModel ReadMarkDownCore(string filePath, YamlHtmlPart part)
+        private static OverwriteDocumentModel GenerateOverwriteModel(string filePath, MarkupResult mr)
         {
-            var repoInfo = GitUtility.GetGitDetail(filePath);
-            var yamlDetail = Select(part);
+            if (mr == null) return null;
 
-            return new OverwriteDocumentModel
-            {
-                Uid = yamlDetail.Id,
-                Metadata = yamlDetail.Properties,
-                Conceptual = part.Conceptual,
-                Documentation = new SourceDetail
-                {
-                    Remote = repoInfo,
-                    StartLine = part.StartLine,
-                    EndLine = part.EndLine,
-                    Path = part.SourceFile
-                }
-            };
-        }
-
-        private static IEnumerable<YamlHtmlPart> MarkupMultiple(IHostService host, string markdown, FileAndType ft)
-        {
-            try
-            {
-                var html = host.MarkupToHtml(markdown, ft);
-                var parts = YamlHtmlPart.SplitYamlHtml(html);
-                foreach (var part in parts)
-                {
-                    var mr = host.MarkupCore(part.OriginHtml, ft, true);
-                    part.LinkToFiles = mr.LinkToFiles;
-                    part.LinkToUids = mr.LinkToUids;
-                    part.YamlHeader = mr.YamlHeader;
-                }
-                return parts;
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.Fail("Markup failed!");
-                Logger.LogWarning($"Markup failed:{Environment.NewLine}  Markdown: {markdown}{Environment.NewLine}  Details:{ex.ToString()}");
-                return Enumerable.Empty<YamlHtmlPart>();
-            }
-        }
-
-        private static MatchDetail Select(YamlHtmlPart part)
-        {
-            if (part == null)
-            {
-                return null;
-            }
-
-            var properties = part.YamlHeader;
+            var properties = mr.YamlHeader;
             string checkPropertyMessage;
             var checkPropertyStatus = CheckRequiredProperties(properties, RequiredProperties, out checkPropertyMessage);
             if (!checkPropertyStatus)
@@ -96,11 +50,20 @@ namespace Microsoft.DocAsCode.Build.Common
             }
 
             var overriden = RemoveRequiredProperties(properties, RequiredProperties);
+            var repoInfo = GitUtility.GetGitDetail(filePath);
 
-            return new MatchDetail
+            return new OverwriteDocumentModel
             {
-                Id = properties[Constants.PropertyName.Uid].ToString(),
-                Properties = overriden
+                Uid = properties[Constants.PropertyName.Uid].ToString(),
+                Metadata = overriden,
+                Conceptual = mr.Html,
+                Documentation = new SourceDetail
+                {
+                    Remote = repoInfo,
+                    StartLine = mr.StartLine,
+                    EndLine = mr.EndLine,
+                    Path = mr.SourceFile
+                }
             };
         }
 

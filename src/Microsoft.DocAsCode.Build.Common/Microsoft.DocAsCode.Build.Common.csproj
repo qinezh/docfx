@@ -10,10 +10,8 @@
     <Compile Include="BaseDocumentBuildStep.cs" />
     <Compile Include="DisposableDocumentProcessor.cs" />
     <Compile Include="MarkdownReader.cs" />
-    <Compile Include="MatchDetail.cs" />
     <Compile Include="OverwriteDocumentModel.cs" />
     <Compile Include="OverwriteDocumentReader.cs" />
-    <Compile Include="YamlHtmlPart.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.DocAsCode.Common\Microsoft.DocAsCode.Common.csproj">

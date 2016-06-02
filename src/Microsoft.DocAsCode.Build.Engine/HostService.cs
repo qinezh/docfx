@@ -84,7 +84,8 @@ namespace Microsoft.DocAsCode.Build.Engine
         {
             try
             {
-                return MarkupCore(markdown, ft);
+                var mrs = MarkupCore(markdown, ft);
+                return mrs.First();
             }
             catch (Exception ex)
             {
@@ -94,15 +95,24 @@ namespace Microsoft.DocAsCode.Build.Engine
             }
         }
 
-        public string MarkupToHtml(string markdown, FileAndType ft)
+        public ImmutableList<MarkupResult> MarkupMultiple(string markdown, FileAndType ft)
         {
-            return MarkdownService.Markup(markdown, ft.File);
+            try
+            {
+                return MarkupCore(markdown, ft).ToImmutableList();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Fail("Markup failed!");
+                Logger.LogWarning($"Markup failed:{Environment.NewLine}  Markdown: {markdown}{Environment.NewLine}  Details:{ex.ToString()}");
+                return new List<MarkupResult>().ToImmutableList();
+            }
         }
 
-        public MarkupResult MarkupCore(string markdown, FileAndType ft, bool isMarkuped = false)
+        private List<MarkupResult> MarkupCore(string markdown, FileAndType ft)
         {
-            var html = isMarkuped ? markdown : MarkupToHtml(markdown, ft);
-            return ResolveLinks(html, ft);
+            var html = MarkdownService.Markup(markdown, ft.File);
+            return ParseHtml(html, ft);
         }
 
         public void LogVerbose(string message, string file, string line)
@@ -189,23 +199,15 @@ namespace Microsoft.DocAsCode.Build.Engine
             }
         }
 
-        private MarkupResult ResolveLinks(string html, FileAndType ft)
+        private void ResolveLinks(string html, FileAndType ft, out HashSet<string> linkToFiles, out IEnumerable<string> linkToUids)
         {
-            var doc = new HtmlDocument();
-            doc.LoadHtml(html);
-            var result = new MarkupResult();
+            var part = new HtmlDocument();
+            part.LoadHtml(html);
 
-            var node = doc.DocumentNode.SelectSingleNode("//yamlheader");
-            if (node != null)
-            {
-                using (var sr = new StringReader(StringHelper.HtmlDecode(node.InnerHtml)))
-                {
-                    result.YamlHeader = YamlUtility.Deserialize<Dictionary<string, object>>(sr).ToImmutableDictionary();
-                }
-                node.Remove();
-            }
-            var linkToFiles = new HashSet<string>();
-            foreach (var pair in (from n in doc.DocumentNode.Descendants()
+            linkToFiles = new HashSet<string>();
+            linkToUids = Enumerable.Empty<string>();
+
+            foreach (var pair in (from n in part.DocumentNode.Descendants()
                                   where !string.Equals(n.Name, "xref", StringComparison.OrdinalIgnoreCase)
                                   from attr in n.Attributes
                                   where string.Equals(attr.Name, "src", StringComparison.OrdinalIgnoreCase) ||
@@ -244,21 +246,73 @@ namespace Microsoft.DocAsCode.Build.Engine
                         }
                     }
                     linkToFiles.Add(HttpUtility.UrlDecode(file));
+                    linkToUids = (from n in part.DocumentNode.Descendants()
+                                  where string.Equals(n.Name, "xref", StringComparison.OrdinalIgnoreCase)
+                                  from attr in n.Attributes
+                                  where string.Equals(attr.Name, "href", StringComparison.OrdinalIgnoreCase) || string.Equals(attr.Name, "uid", StringComparison.OrdinalIgnoreCase)
+                                  where !string.IsNullOrWhiteSpace(attr.Value)
+                                  select attr.Value);
                 }
             }
-            result.LinkToFiles = linkToFiles.ToImmutableArray();
-            result.LinkToUids = (from n in doc.DocumentNode.Descendants()
-                                 where string.Equals(n.Name, "xref", StringComparison.OrdinalIgnoreCase)
-                                 from attr in n.Attributes
-                                 where string.Equals(attr.Name, "href", StringComparison.OrdinalIgnoreCase) || string.Equals(attr.Name, "uid", StringComparison.OrdinalIgnoreCase)
-                                 where !string.IsNullOrWhiteSpace(attr.Value)
-                                 select attr.Value).ToImmutableHashSet();
-            using (var sw = new StringWriter())
+        }
+
+        private List<MarkupResult> ParseHtml(string html, FileAndType ft)
+        {
+            var mrs = new List<MarkupResult>();
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+
+            var nodes = doc.DocumentNode.SelectNodes("//yamlheader");
+
+            // Case one: HTML without <yamlheader>
+            if (nodes == null)
             {
-                doc.Save(sw);
-                result.Html = sw.ToString();
+                var mr = new MarkupResult
+                {
+                    Html = html
+                };
+                HashSet<string> linkToFiles;
+                IEnumerable<string> linkToUids;
+                ResolveLinks(mr.Html, ft, out linkToFiles, out linkToUids);
+                mr.LinkToFiles = linkToFiles.ToImmutableArray();
+                mr.LinkToUids = linkToUids.ToImmutableHashSet();
+                mrs.Add(mr);
+                return mrs;
             }
-            return result;
+
+            // Case two: HTML with one or more <yamlheader>
+            foreach (var node in nodes)
+            {
+                var mr = new MarkupResult
+                {
+                    SourceFile = node.GetAttributeValue("sourceFile", "NotFound"),
+                    StartLine = node.GetAttributeValue("start", -1),
+                    EndLine = node.GetAttributeValue("end", -1)
+                };
+
+                using (var sr = new StringReader(StringHelper.HtmlDecode(node.InnerHtml)))
+                {
+                    mr.YamlHeader = YamlUtility.Deserialize<Dictionary<string, object>>(sr).ToImmutableDictionary();
+                }
+                mrs.Add(mr);
+            }
+
+            var startIndexes = nodes.Select(node => node.StreamPosition).Skip(1).ToList();
+            startIndexes.Add(html.Length);
+            var endIndexes = nodes.Select(node => node.StreamPosition + node.OuterHtml.Replace("\"", "").Length - 1).ToList();
+
+            for (var i = 0; i < mrs.Count; i++)
+            {
+                mrs[i].Html = html.Substring(endIndexes[i] + 1, startIndexes[i] - endIndexes[i] - 1);
+
+                HashSet<string> linkToFiles;
+                IEnumerable<string> linkToUids;
+                ResolveLinks(mrs[i].Html, ft, out linkToFiles, out linkToUids);
+
+                mrs[i].LinkToFiles = linkToFiles.ToImmutableArray();
+                mrs[i].LinkToUids = linkToUids.ToImmutableHashSet();
+            }
+            return mrs;
         }
 
 
