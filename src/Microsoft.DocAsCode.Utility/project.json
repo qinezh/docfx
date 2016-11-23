@@ -36,6 +36,9 @@
         },
         "System.Web": {}
       }
+    },
+    "netstandard1.3": {
+      "imports": "dotnet"
     }
   }
 }
