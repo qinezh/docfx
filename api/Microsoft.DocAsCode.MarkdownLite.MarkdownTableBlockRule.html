@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   
@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class MarkdownTableBlockRule
    | DocFX website ">
-    <meta name="generator" content="docfx 2.3.0.0">
+    <meta name="generator" content="docfx 1.0.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -19,6 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     <meta property="docfx:rel" content="../">
+    
   </head>
   <body data-spy="scroll" data-target="#affix">
     <div id="wrapper">
@@ -33,6 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
+              
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -76,8 +78,6 @@
             <article class="content wrap" id="_content">
               
               
-              <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="btn btn-primary pull-right mobile-hide">Improve this Doc</a>
-              <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.MarkdownLite/Tables/MarkdownTableBlockRule.cs/#L10" class="btn btn-primary pull-right mobile-hide">View Source</a>
               <h1 id="Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule" data-uid="Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule">Class MarkdownTableBlockRule
               </h1>
               <div class="markdown level0 summary"></div>
@@ -119,13 +119,9 @@
               </div>
               <h3 id="properties">Properties
               </h3>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_Name.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.MarkdownLite/Tables/MarkdownTableBlockRule.cs/#L12">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_Name_" data-uid="Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.Name*"></a>
               <h4 id="Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_Name" data-uid="Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.Name">Name</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -150,19 +146,16 @@
               </table>
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="Microsoft.DocAsCode.MarkdownLite.IMarkdownRule.html#Microsoft_DocAsCode_MarkdownLite_IMarkdownRule_Name">IMarkdownRule.Name</a></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_Table.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.Table%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.MarkdownLite/Tables/MarkdownTableBlockRule.cs/#L14">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_Table_" data-uid="Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.Table*"></a>
               <h4 id="Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_Table" data-uid="Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.Table">Table</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public virtual Regex Table { get; }</code></pre>
+                <pre><code class="lang-csharp hljs">[Obsolete(&quot;Please use TableMatcher.&quot;)]
+public virtual Regex Table { get; }</code></pre>
               </div>
               <h5 class="propertyValue">Property Value</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -179,15 +172,36 @@
                   </tr>
                 </tbody>
               </table>
+              
+              
+              <a id="Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_TableMatcher_" data-uid="Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.TableMatcher*"></a>
+              <h4 id="Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_TableMatcher" data-uid="Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.TableMatcher">TableMatcher</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public virtual Matcher TableMatcher { get; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Microsoft.DocAsCode.MarkdownLite.Matchers.Matcher.html">Matcher</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
               <h3 id="methods">Methods
               </h3>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_ParseAligns_System_String___.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.ParseAligns(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.MarkdownLite/Tables/MarkdownTableBlockRule.cs/#L59">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_ParseAligns_" data-uid="Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.ParseAligns*"></a>
               <h4 id="Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_ParseAligns_System_String___" data-uid="Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.ParseAligns(System.String[])">ParseAligns(String[])</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -207,7 +221,7 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>[]</td>
-                    <td><em>aligns</em></td>
+                    <td><span class="parametername">aligns</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -222,18 +236,14 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Microsoft.DocAsCode.MarkdownLite.Align.html#Microsoft_DocAsCode_MarkdownLite_Align">Align</a>[]</td>
+                    <td><a class="xref" href="Microsoft.DocAsCode.MarkdownLite.Align.html">Align</a>[]</td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_TryMatch_Microsoft_DocAsCode_MarkdownLite_IMarkdownParser_Microsoft_DocAsCode_MarkdownLite_IMarkdownParsingContext_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.TryMatch(Microsoft.DocAsCode.MarkdownLite.IMarkdownParser%2CMicrosoft.DocAsCode.MarkdownLite.IMarkdownParsingContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.MarkdownLite/Tables/MarkdownTableBlockRule.cs/#L16">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_TryMatch_" data-uid="Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.TryMatch*"></a>
               <h4 id="Microsoft_DocAsCode_MarkdownLite_MarkdownTableBlockRule_TryMatch_Microsoft_DocAsCode_MarkdownLite_IMarkdownParser_Microsoft_DocAsCode_MarkdownLite_IMarkdownParsingContext_" data-uid="Microsoft.DocAsCode.MarkdownLite.MarkdownTableBlockRule.TryMatch(Microsoft.DocAsCode.MarkdownLite.IMarkdownParser,Microsoft.DocAsCode.MarkdownLite.IMarkdownParsingContext)">TryMatch(IMarkdownParser, IMarkdownParsingContext)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -252,13 +262,13 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Microsoft.DocAsCode.MarkdownLite.IMarkdownParser.html#Microsoft_DocAsCode_MarkdownLite_IMarkdownParser">IMarkdownParser</a></td>
-                    <td><em>parser</em></td>
+                    <td><a class="xref" href="Microsoft.DocAsCode.MarkdownLite.IMarkdownParser.html">IMarkdownParser</a></td>
+                    <td><span class="parametername">parser</span></td>
                     <td></td>
                   </tr>
                   <tr>
-                    <td><a class="xref" href="Microsoft.DocAsCode.MarkdownLite.IMarkdownParsingContext.html#Microsoft_DocAsCode_MarkdownLite_IMarkdownParsingContext">IMarkdownParsingContext</a></td>
-                    <td><em>context</em></td>
+                    <td><a class="xref" href="Microsoft.DocAsCode.MarkdownLite.IMarkdownParsingContext.html">IMarkdownParsingContext</a></td>
+                    <td><span class="parametername">context</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -273,7 +283,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Microsoft.DocAsCode.MarkdownLite.IMarkdownToken.html#Microsoft_DocAsCode_MarkdownLite_IMarkdownToken">IMarkdownToken</a></td>
+                    <td><a class="xref" href="Microsoft.DocAsCode.MarkdownLite.IMarkdownToken.html">IMarkdownToken</a></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -282,15 +292,21 @@
                   <div><a class="xref" href="Microsoft.DocAsCode.MarkdownLite.IMarkdownRule.html#Microsoft_DocAsCode_MarkdownLite_IMarkdownRule_TryMatch_Microsoft_DocAsCode_MarkdownLite_IMarkdownParser_Microsoft_DocAsCode_MarkdownLite_IMarkdownParsingContext_">IMarkdownRule.TryMatch(IMarkdownParser, IMarkdownParsingContext)</a></div>
               <h3 id="extensionmethods">Extension Methods</h3>
               <div>
-                  <a class="xref" href="Microsoft.DocAsCode.Common.JsonUtility.html#Microsoft_DocAsCode_Common_JsonUtility_ToJsonString_System_Object_Newtonsoft_Json_Formatting_Newtonsoft_Json_JsonSerializer_">JsonUtility.ToJsonString(Formatting, JsonSerializer)</a>
+                  <a class="xref" href="Microsoft.DocAsCode.Common.JsonUtility.html#Microsoft_DocAsCode_Common_JsonUtility_ToJsonString_System_Object_Newtonsoft_Json_Formatting_Newtonsoft_Json_JsonSerializer_">JsonUtility.ToJsonString(Object, Formatting, JsonSerializer)</a>
               </div>
-            </article>
+                        </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-            <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-            </nav>
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -303,7 +319,7 @@
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2015-2016 Microsoft<br>Generated by <strong>DocFX</strong></span>
+            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
@@ -312,6 +328,5 @@
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

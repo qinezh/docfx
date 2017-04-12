@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   
@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CSReferenceItemVisitor
    | DocFX website ">
-    <meta name="generator" content="docfx 2.3.0.0">
+    <meta name="generator" content="docfx 1.0.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -19,6 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     <meta property="docfx:rel" content="../">
+    
   </head>
   <body data-spy="scroll" data-target="#affix">
     <div id="wrapper">
@@ -33,6 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
+              
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -76,8 +78,6 @@
             <article class="content wrap" id="_content">
               
               
-              <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="btn btn-primary pull-right mobile-hide">Improve this Doc</a>
-              <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L66" class="btn btn-primary pull-right mobile-hide">View Source</a>
               <h1 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor">Class CSReferenceItemVisitor
               </h1>
               <div class="markdown level0 summary"></div>
@@ -86,7 +86,7 @@
                 <h5>Inheritance</h5>
                   <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
                   <div class="level1"><span class="xref">Microsoft.CodeAnalysis.SymbolVisitor</span></div>
-                  <div class="level2"><a class="xref" href="Microsoft.DocAsCode.Metadata.ManagedReference.ReferenceItemVisitor.html#Microsoft_DocAsCode_Metadata_ManagedReference_ReferenceItemVisitor">ReferenceItemVisitor</a></div>
+                  <div class="level2"><a class="xref" href="Microsoft.DocAsCode.Metadata.ManagedReference.ReferenceItemVisitor.html">ReferenceItemVisitor</a></div>
                   <div class="level3"><span class="xref">CSReferenceItemVisitor</span></div>
               </div>
               <div class="inheritedMembers">
@@ -120,6 +120,9 @@
                 </div>
                 <div>
                   <span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitAssembly(Microsoft.CodeAnalysis.IAssemblySymbol)</span>
+                </div>
+                <div>
+                  <span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitDiscard(Microsoft.CodeAnalysis.IDiscardSymbol)</span>
                 </div>
                 <div>
                   <span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitLabel(Microsoft.CodeAnalysis.ILabelSymbol)</span>
@@ -166,19 +169,15 @@
               </div>
               <h3 id="constructors">Constructors
               </h3>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor__ctor_Microsoft_DocAsCode_Metadata_ManagedReference_ReferenceItem_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.%23ctor(Microsoft.DocAsCode.Metadata.ManagedReference.ReferenceItem)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L69">View Source</a>
-              </span>
-              <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor__ctor_Microsoft_DocAsCode_Metadata_ManagedReference_ReferenceItem_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.#ctor(Microsoft.DocAsCode.Metadata.ManagedReference.ReferenceItem)">CSReferenceItemVisitor(ReferenceItem)</h4>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor__ctor_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.#ctor*"></a>
+              <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor__ctor_Microsoft_DocAsCode_Metadata_ManagedReference_ReferenceItem_System_Boolean_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.#ctor(Microsoft.DocAsCode.Metadata.ManagedReference.ReferenceItem,System.Boolean)">CSReferenceItemVisitor(ReferenceItem, Boolean)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public CSReferenceItemVisitor(ReferenceItem referenceItem)</code></pre>
+                <pre><code class="lang-csharp hljs">public CSReferenceItemVisitor(ReferenceItem referenceItem, bool asOverload)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -191,21 +190,22 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Microsoft.DocAsCode.Metadata.ManagedReference.ReferenceItem.html#Microsoft_DocAsCode_Metadata_ManagedReference_ReferenceItem">ReferenceItem</a></td>
-                    <td><em>referenceItem</em></td>
+                    <td><a class="xref" href="Microsoft.DocAsCode.Metadata.ManagedReference.ReferenceItem.html">ReferenceItem</a></td>
+                    <td><span class="parametername">referenceItem</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
+                    <td><span class="parametername">asOverload</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h3 id="methods">Methods
               </h3>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddBeginGenericParameter.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddBeginGenericParameter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L249">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddBeginGenericParameter_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddBeginGenericParameter*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddBeginGenericParameter" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddBeginGenericParameter">AddBeginGenericParameter()</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -215,13 +215,9 @@
               </div>
               <h5 class="overrides">Overrides</h5>
               <div><a class="xref" href="Microsoft.DocAsCode.Metadata.ManagedReference.ReferenceItemVisitor.html#Microsoft_DocAsCode_Metadata_ManagedReference_ReferenceItemVisitor_AddBeginGenericParameter">ReferenceItemVisitor.AddBeginGenericParameter()</a></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddEndGenericParameter.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddEndGenericParameter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L259">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddEndGenericParameter_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddEndGenericParameter*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddEndGenericParameter" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddEndGenericParameter">AddEndGenericParameter()</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -231,13 +227,9 @@
               </div>
               <h5 class="overrides">Overrides</h5>
               <div><a class="xref" href="Microsoft.DocAsCode.Metadata.ManagedReference.ReferenceItemVisitor.html#Microsoft_DocAsCode_Metadata_ManagedReference_ReferenceItemVisitor_AddEndGenericParameter">ReferenceItemVisitor.AddEndGenericParameter()</a></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddGenericParameterSeparator.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddGenericParameterSeparator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L269">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddGenericParameterSeparator_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddGenericParameterSeparator*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddGenericParameterSeparator" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddGenericParameterSeparator">AddGenericParameterSeparator()</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -247,13 +239,9 @@
               </div>
               <h5 class="overrides">Overrides</h5>
               <div><a class="xref" href="Microsoft.DocAsCode.Metadata.ManagedReference.ReferenceItemVisitor.html#Microsoft_DocAsCode_Metadata_ManagedReference_ReferenceItemVisitor_AddGenericParameterSeparator">ReferenceItemVisitor.AddGenericParameterSeparator()</a></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddLinkItems_Microsoft_CodeAnalysis_INamedTypeSymbol_System_Boolean_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddLinkItems(Microsoft.CodeAnalysis.INamedTypeSymbol%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L279">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddLinkItems_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddLinkItems*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_AddLinkItems_Microsoft_CodeAnalysis_INamedTypeSymbol_System_Boolean_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.AddLinkItems(Microsoft.CodeAnalysis.INamedTypeSymbol,System.Boolean)">AddLinkItems(INamedTypeSymbol, Boolean)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -273,25 +261,21 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Microsoft.CodeAnalysis.INamedTypeSymbol</span></td>
-                    <td><em>symbol</em></td>
+                    <td><span class="parametername">symbol</span></td>
                     <td></td>
                   </tr>
                   <tr>
                     <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-                    <td><em>withGenericeParameter</em></td>
+                    <td><span class="parametername">withGenericeParameter</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="overrides">Overrides</h5>
               <div><a class="xref" href="Microsoft.DocAsCode.Metadata.ManagedReference.ReferenceItemVisitor.html#Microsoft_DocAsCode_Metadata_ManagedReference_ReferenceItemVisitor_AddLinkItems_Microsoft_CodeAnalysis_INamedTypeSymbol_System_Boolean_">ReferenceItemVisitor.AddLinkItems(INamedTypeSymbol, Boolean)</a></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitArrayType_Microsoft_CodeAnalysis_IArrayTypeSymbol_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitArrayType(Microsoft.CodeAnalysis.IArrayTypeSymbol)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L97">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitArrayType_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitArrayType*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitArrayType_Microsoft_CodeAnalysis_IArrayTypeSymbol_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitArrayType(Microsoft.CodeAnalysis.IArrayTypeSymbol)">VisitArrayType(IArrayTypeSymbol)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -311,20 +295,16 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Microsoft.CodeAnalysis.IArrayTypeSymbol</span></td>
-                    <td><em>symbol</em></td>
+                    <td><span class="parametername">symbol</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="overrides">Overrides</h5>
               <div><span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitArrayType(Microsoft.CodeAnalysis.IArrayTypeSymbol)</span></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitDynamicType_Microsoft_CodeAnalysis_IDynamicTypeSymbol_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitDynamicType(Microsoft.CodeAnalysis.IDynamicTypeSymbol)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L237">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitDynamicType_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitDynamicType*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitDynamicType_Microsoft_CodeAnalysis_IDynamicTypeSymbol_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitDynamicType(Microsoft.CodeAnalysis.IDynamicTypeSymbol)">VisitDynamicType(IDynamicTypeSymbol)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -344,20 +324,16 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Microsoft.CodeAnalysis.IDynamicTypeSymbol</span></td>
-                    <td><em>symbol</em></td>
+                    <td><span class="parametername">symbol</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="overrides">Overrides</h5>
               <div><span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitDynamicType(Microsoft.CodeAnalysis.IDynamicTypeSymbol)</span></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitEvent_Microsoft_CodeAnalysis_IEventSymbol_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitEvent(Microsoft.CodeAnalysis.IEventSymbol)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L211">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitEvent_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitEvent*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitEvent_Microsoft_CodeAnalysis_IEventSymbol_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitEvent(Microsoft.CodeAnalysis.IEventSymbol)">VisitEvent(IEventSymbol)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -377,20 +353,16 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Microsoft.CodeAnalysis.IEventSymbol</span></td>
-                    <td><em>symbol</em></td>
+                    <td><span class="parametername">symbol</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="overrides">Overrides</h5>
               <div><span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitEvent(Microsoft.CodeAnalysis.IEventSymbol)</span></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitField_Microsoft_CodeAnalysis_IFieldSymbol_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitField(Microsoft.CodeAnalysis.IFieldSymbol)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L224">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitField_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitField*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitField_Microsoft_CodeAnalysis_IFieldSymbol_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitField(Microsoft.CodeAnalysis.IFieldSymbol)">VisitField(IFieldSymbol)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -410,20 +382,16 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Microsoft.CodeAnalysis.IFieldSymbol</span></td>
-                    <td><em>symbol</em></td>
+                    <td><span class="parametername">symbol</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="overrides">Overrides</h5>
               <div><span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitField(Microsoft.CodeAnalysis.IFieldSymbol)</span></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitMethod_Microsoft_CodeAnalysis_IMethodSymbol_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitMethod(Microsoft.CodeAnalysis.IMethodSymbol)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L131">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitMethod_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitMethod*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitMethod_Microsoft_CodeAnalysis_IMethodSymbol_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitMethod(Microsoft.CodeAnalysis.IMethodSymbol)">VisitMethod(IMethodSymbol)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -443,20 +411,16 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Microsoft.CodeAnalysis.IMethodSymbol</span></td>
-                    <td><em>symbol</em></td>
+                    <td><span class="parametername">symbol</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="overrides">Overrides</h5>
               <div><span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitMethod(Microsoft.CodeAnalysis.IMethodSymbol)</span></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitNamespace_Microsoft_CodeAnalysis_INamespaceSymbol_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitNamespace(Microsoft.CodeAnalysis.INamespaceSymbol)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L77">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitNamespace_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitNamespace*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitNamespace_Microsoft_CodeAnalysis_INamespaceSymbol_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitNamespace(Microsoft.CodeAnalysis.INamespaceSymbol)">VisitNamespace(INamespaceSymbol)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -476,20 +440,16 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Microsoft.CodeAnalysis.INamespaceSymbol</span></td>
-                    <td><em>symbol</em></td>
+                    <td><span class="parametername">symbol</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="overrides">Overrides</h5>
               <div><span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitNamespace(Microsoft.CodeAnalysis.INamespaceSymbol)</span></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitPointerType_Microsoft_CodeAnalysis_IPointerTypeSymbol_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitPointerType(Microsoft.CodeAnalysis.IPointerTypeSymbol)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L120">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitPointerType_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitPointerType*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitPointerType_Microsoft_CodeAnalysis_IPointerTypeSymbol_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitPointerType(Microsoft.CodeAnalysis.IPointerTypeSymbol)">VisitPointerType(IPointerTypeSymbol)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -509,20 +469,16 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Microsoft.CodeAnalysis.IPointerTypeSymbol</span></td>
-                    <td><em>symbol</em></td>
+                    <td><span class="parametername">symbol</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="overrides">Overrides</h5>
               <div><span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitPointerType(Microsoft.CodeAnalysis.IPointerTypeSymbol)</span></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitProperty_Microsoft_CodeAnalysis_IPropertySymbol_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitProperty(Microsoft.CodeAnalysis.IPropertySymbol)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L169">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitProperty_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitProperty*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitProperty_Microsoft_CodeAnalysis_IPropertySymbol_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitProperty(Microsoft.CodeAnalysis.IPropertySymbol)">VisitProperty(IPropertySymbol)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -542,20 +498,16 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Microsoft.CodeAnalysis.IPropertySymbol</span></td>
-                    <td><em>symbol</em></td>
+                    <td><span class="parametername">symbol</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="overrides">Overrides</h5>
               <div><span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitProperty(Microsoft.CodeAnalysis.IPropertySymbol)</span></div>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/dotnet/docfx/new/dev/Documentation/apispec/new?filename=Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitTypeParameter_Microsoft_CodeAnalysis_ITypeParameterSymbol_.md&amp;value=---%0Auid%3A%20Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitTypeParameter(Microsoft.CodeAnalysis.ITypeParameterSymbol)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/dotnet/docfx/blob/master/src/Microsoft.DocAsCode.Metadata.ManagedReference/Visitors/ReferenceItemVisitor.cs/#L87">View Source</a>
-              </span>
+              
+              
+              <a id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitTypeParameter_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitTypeParameter*"></a>
               <h4 id="Microsoft_DocAsCode_Metadata_ManagedReference_CSReferenceItemVisitor_VisitTypeParameter_Microsoft_CodeAnalysis_ITypeParameterSymbol_" data-uid="Microsoft.DocAsCode.Metadata.ManagedReference.CSReferenceItemVisitor.VisitTypeParameter(Microsoft.CodeAnalysis.ITypeParameterSymbol)">VisitTypeParameter(ITypeParameterSymbol)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
@@ -575,7 +527,7 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Microsoft.CodeAnalysis.ITypeParameterSymbol</span></td>
-                    <td><em>symbol</em></td>
+                    <td><span class="parametername">symbol</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -584,15 +536,21 @@
               <div><span class="xref">Microsoft.CodeAnalysis.SymbolVisitor.VisitTypeParameter(Microsoft.CodeAnalysis.ITypeParameterSymbol)</span></div>
               <h3 id="extensionmethods">Extension Methods</h3>
               <div>
-                  <a class="xref" href="Microsoft.DocAsCode.Common.JsonUtility.html#Microsoft_DocAsCode_Common_JsonUtility_ToJsonString_System_Object_Newtonsoft_Json_Formatting_Newtonsoft_Json_JsonSerializer_">JsonUtility.ToJsonString(Formatting, JsonSerializer)</a>
+                  <a class="xref" href="Microsoft.DocAsCode.Common.JsonUtility.html#Microsoft_DocAsCode_Common_JsonUtility_ToJsonString_System_Object_Newtonsoft_Json_Formatting_Newtonsoft_Json_JsonSerializer_">JsonUtility.ToJsonString(Object, Formatting, JsonSerializer)</a>
               </div>
-            </article>
+                        </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-            <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-            </nav>
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -605,7 +563,7 @@
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2015-2016 Microsoft<br>Generated by <strong>DocFX</strong></span>
+            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
@@ -614,6 +572,5 @@
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
