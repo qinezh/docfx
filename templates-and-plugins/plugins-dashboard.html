@@ -4,8 +4,8 @@
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Available templates and themes | </title>
-  <meta name="title" content="Available templates and themes | ">
+  <title>Available plugins and templates | </title>
+  <meta name="title" content="Available plugins and templates | ">
   <meta name="viewport" content="width=device-width">
   <meta name="generator" content="docfx 1.0.0.0">
   <link rel="shortcut icon" href="../favicon.ico">
@@ -91,33 +91,20 @@
           </span>
           <h1 id="dashboard-for-templates">Dashboard for Templates</h1>
           
-<p>The templates listed here mainly focus on the layout and themes of the generated website. Add your own customized templates here for others to view and use!</p>
+<p>The templates listed here mainly focus on the functionality of the generated website, it often contains a <em>plugins</em> folder containing assemblies for advanced processing of the data model. It usually also contains corresponding renderer files to further transform the processed data model to web pages. You can follow <a href="../tutorial/howto_build_your_own_type_of_documentation_with_custom_plug-in.html">How to Create Custom Document Processors</a> and <a href="../tutorial/howto_add_a_customized_post_processor.html">How to Create Custom PostProcessor</a> to create your own plugins. Add your own customized templates and plugins here for others to view and use!</p>
 
           <ul id="template-container">
               <li class="template-item">
                 <div class="template-screenshot">
-                  <img src="images/default.screenshot.png" class="template-screenshot-img">
+                  <img src="images/memberpage.default.screenshot.png" class="template-screenshot-img">
                 </div>
-                <a class="template-title" href="https://github.com/dotnet/docfx/tree/dev/src/docfx.website.themes/default">default</a>
-                <p class="template-desc">The default template</p>
-              </li>
-              <li class="template-item">
-                <div class="template-screenshot">
-                  <img src="images/default.green.screenshot.png" class="template-screenshot-img">
-                </div>
-                <a class="template-title" href="https://github.com/dotnet/docfx/tree/dev/src/docfx.website.themes/statictoc">statictoc</a>
-                <p class="template-desc">The template similar to default template however with static toc. With static toc, the generated web pages can be previewed from local file system.</p>
+                <a class="template-title" href="https://www.nuget.org/packages/memberpage/">memberpage</a>
+                <p class="template-desc">It splits the *YAML* data model into member level. Currently it supports ManagedReference document type. With this template enabled, the class page contains lists of method overloads, fields, events and so on, while every method overload, field or event displays in a separated page.</p>
                 <ul>
-                  <li><span>In command:<code>-t statictoc</code></span></li>
-                  <li><span>In <c>docfx.json</c>:<code>template: statictoc</code></span></li>
+                  <li><span>Init:<code>nuget install memberpage -OutputDirectory &lt;output&gt;</code></span></li>
+                  <li><span>In command:<code>-t default,&lt;output&gt;/memberpage.&lt;version&gt;/content</code></span></li>
+                  <li><span>In <c>docfx.json</c>:<code>template: [&quot;statictoc&quot;, &quot;&lt;output&gt;/memberpage.&lt;version&gt;/content&quot;]</code></span></li>
                 </ul>
-              </li>
-              <li class="template-item">
-                <div class="template-screenshot">
-                  <img src="images/default.screenshot.png" class="template-screenshot-img">
-                </div>
-                <a class="template-title" href="https://github.com/dotnet/docfx/tree/dev/src/docfx.website.themes/default">sideway</a>
-                <p class="template-desc">A simple template</p>
               </li>
           </ul>
         </div>

@@ -4106,30 +4106,18 @@ references:
   commentId: T:Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider
   fullName: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider
   nameWithType: DfmLegacyServiceProvider
-- uid: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.CreateMarkdownService(Microsoft.DocAsCode.Plugins.MarkdownServiceParameters)
-  name: CreateMarkdownService(MarkdownServiceParameters)
-  href: api/Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmLegacyServiceProvider_CreateMarkdownService_Microsoft_DocAsCode_Plugins_MarkdownServiceParameters_
-  commentId: M:Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.CreateMarkdownService(Microsoft.DocAsCode.Plugins.MarkdownServiceParameters)
-  fullName: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.CreateMarkdownService(Microsoft.DocAsCode.Plugins.MarkdownServiceParameters)
-  nameWithType: DfmLegacyServiceProvider.CreateMarkdownService(MarkdownServiceParameters)
-- uid: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.CreateMarkdownService*
-  name: CreateMarkdownService
-  href: api/Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmLegacyServiceProvider_CreateMarkdownService_
-  commentId: Overload:Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.CreateMarkdownService
-  fullName: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.CreateMarkdownService
-  nameWithType: DfmLegacyServiceProvider.CreateMarkdownService
-- uid: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.TokenTreeValidator
-  name: TokenTreeValidator
-  href: api/Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmLegacyServiceProvider_TokenTreeValidator
-  commentId: P:Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.TokenTreeValidator
-  fullName: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.TokenTreeValidator
-  nameWithType: DfmLegacyServiceProvider.TokenTreeValidator
-- uid: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.TokenTreeValidator*
-  name: TokenTreeValidator
-  href: api/Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmLegacyServiceProvider_TokenTreeValidator_
-  commentId: Overload:Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.TokenTreeValidator
-  fullName: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.TokenTreeValidator
-  nameWithType: DfmLegacyServiceProvider.TokenTreeValidator
+- uid: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.LegacyMode
+  name: LegacyMode
+  href: api/Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmLegacyServiceProvider_LegacyMode
+  commentId: P:Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.LegacyMode
+  fullName: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.LegacyMode
+  nameWithType: DfmLegacyServiceProvider.LegacyMode
+- uid: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.LegacyMode*
+  name: LegacyMode
+  href: api/Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmLegacyServiceProvider_LegacyMode_
+  commentId: Overload:Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.LegacyMode
+  fullName: Microsoft.DocAsCode.Build.Engine.DfmLegacyServiceProvider.LegacyMode
+  nameWithType: DfmLegacyServiceProvider.LegacyMode
 - uid: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider
   name: DfmServiceProvider
   href: api/Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.html
@@ -4148,6 +4136,42 @@ references:
   commentId: Overload:Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.CreateMarkdownService
   fullName: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.CreateMarkdownService
   nameWithType: DfmServiceProvider.CreateMarkdownService
+- uid: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmEngineCustomizers
+  name: DfmEngineCustomizers
+  href: api/Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmServiceProvider_DfmEngineCustomizers
+  commentId: P:Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmEngineCustomizers
+  fullName: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmEngineCustomizers
+  nameWithType: DfmServiceProvider.DfmEngineCustomizers
+- uid: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmEngineCustomizers*
+  name: DfmEngineCustomizers
+  href: api/Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmServiceProvider_DfmEngineCustomizers_
+  commentId: Overload:Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmEngineCustomizers
+  fullName: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmEngineCustomizers
+  nameWithType: DfmServiceProvider.DfmEngineCustomizers
+- uid: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmRendererPartProviders
+  name: DfmRendererPartProviders
+  href: api/Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmServiceProvider_DfmRendererPartProviders
+  commentId: P:Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmRendererPartProviders
+  fullName: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmRendererPartProviders
+  nameWithType: DfmServiceProvider.DfmRendererPartProviders
+- uid: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmRendererPartProviders*
+  name: DfmRendererPartProviders
+  href: api/Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmServiceProvider_DfmRendererPartProviders_
+  commentId: Overload:Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmRendererPartProviders
+  fullName: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.DfmRendererPartProviders
+  nameWithType: DfmServiceProvider.DfmRendererPartProviders
+- uid: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.LegacyMode
+  name: LegacyMode
+  href: api/Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmServiceProvider_LegacyMode
+  commentId: P:Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.LegacyMode
+  fullName: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.LegacyMode
+  nameWithType: DfmServiceProvider.LegacyMode
+- uid: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.LegacyMode*
+  name: LegacyMode
+  href: api/Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmServiceProvider_LegacyMode_
+  commentId: Overload:Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.LegacyMode
+  fullName: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.LegacyMode
+  nameWithType: DfmServiceProvider.LegacyMode
 - uid: Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.TokenTreeValidator
   name: TokenTreeValidator
   href: api/Microsoft.DocAsCode.Build.Engine.DfmServiceProvider.html#Microsoft_DocAsCode_Build_Engine_DfmServiceProvider_TokenTreeValidator
@@ -9118,6 +9142,18 @@ references:
   commentId: Overload:Microsoft.DocAsCode.Build.Engine.TemplateUtility.#ctor
   fullName: Microsoft.DocAsCode.Build.Engine.TemplateUtility.TemplateUtility
   nameWithType: TemplateUtility.TemplateUtility
+- uid: Microsoft.DocAsCode.Build.Engine.TemplateUtility.GetHrefFromRoot(System.String,System.String)
+  name: GetHrefFromRoot(String, String)
+  href: api/Microsoft.DocAsCode.Build.Engine.TemplateUtility.html#Microsoft_DocAsCode_Build_Engine_TemplateUtility_GetHrefFromRoot_System_String_System_String_
+  commentId: M:Microsoft.DocAsCode.Build.Engine.TemplateUtility.GetHrefFromRoot(System.String,System.String)
+  fullName: Microsoft.DocAsCode.Build.Engine.TemplateUtility.GetHrefFromRoot(System.String, System.String)
+  nameWithType: TemplateUtility.GetHrefFromRoot(String, String)
+- uid: Microsoft.DocAsCode.Build.Engine.TemplateUtility.GetHrefFromRoot*
+  name: GetHrefFromRoot
+  href: api/Microsoft.DocAsCode.Build.Engine.TemplateUtility.html#Microsoft_DocAsCode_Build_Engine_TemplateUtility_GetHrefFromRoot_
+  commentId: Overload:Microsoft.DocAsCode.Build.Engine.TemplateUtility.GetHrefFromRoot
+  fullName: Microsoft.DocAsCode.Build.Engine.TemplateUtility.GetHrefFromRoot
+  nameWithType: TemplateUtility.GetHrefFromRoot
 - uid: Microsoft.DocAsCode.Build.Engine.TemplateUtility.ResolveSourceRelativePath(System.String,System.String)
   name: ResolveSourceRelativePath(String, String)
   href: api/Microsoft.DocAsCode.Build.Engine.TemplateUtility.html#Microsoft_DocAsCode_Build_Engine_TemplateUtility_ResolveSourceRelativePath_System_String_System_String_
@@ -18359,6 +18395,18 @@ references:
   commentId: Overload:Microsoft.DocAsCode.Common.PathUtility.IsDirectory
   fullName: Microsoft.DocAsCode.Common.PathUtility.IsDirectory
   nameWithType: PathUtility.IsDirectory
+- uid: Microsoft.DocAsCode.Common.PathUtility.IsPathCaseInsensitive
+  name: IsPathCaseInsensitive()
+  href: api/Microsoft.DocAsCode.Common.PathUtility.html#Microsoft_DocAsCode_Common_PathUtility_IsPathCaseInsensitive
+  commentId: M:Microsoft.DocAsCode.Common.PathUtility.IsPathCaseInsensitive
+  fullName: Microsoft.DocAsCode.Common.PathUtility.IsPathCaseInsensitive()
+  nameWithType: PathUtility.IsPathCaseInsensitive()
+- uid: Microsoft.DocAsCode.Common.PathUtility.IsPathCaseInsensitive*
+  name: IsPathCaseInsensitive
+  href: api/Microsoft.DocAsCode.Common.PathUtility.html#Microsoft_DocAsCode_Common_PathUtility_IsPathCaseInsensitive_
+  commentId: Overload:Microsoft.DocAsCode.Common.PathUtility.IsPathCaseInsensitive
+  fullName: Microsoft.DocAsCode.Common.PathUtility.IsPathCaseInsensitive
+  nameWithType: PathUtility.IsPathCaseInsensitive
 - uid: Microsoft.DocAsCode.Common.PathUtility.IsPathUnderSpecificFolder(System.String,System.String)
   name: IsPathUnderSpecificFolder(String, String)
   href: api/Microsoft.DocAsCode.Common.PathUtility.html#Microsoft_DocAsCode_Common_PathUtility_IsPathUnderSpecificFolder_System_String_System_String_
@@ -21054,6 +21102,12 @@ references:
   commentId: F:Microsoft.DocAsCode.DataContracts.Common.Constants.PropertyName.NameWithType
   fullName: Microsoft.DocAsCode.DataContracts.Common.Constants.PropertyName.NameWithType
   nameWithType: Constants.PropertyName.NameWithType
+- uid: Microsoft.DocAsCode.DataContracts.Common.Constants.PropertyName.OutputFileName
+  name: OutputFileName
+  href: api/Microsoft.DocAsCode.DataContracts.Common.Constants.PropertyName.html#Microsoft_DocAsCode_DataContracts_Common_Constants_PropertyName_OutputFileName
+  commentId: F:Microsoft.DocAsCode.DataContracts.Common.Constants.PropertyName.OutputFileName
+  fullName: Microsoft.DocAsCode.DataContracts.Common.Constants.PropertyName.OutputFileName
+  nameWithType: Constants.PropertyName.OutputFileName
 - uid: Microsoft.DocAsCode.DataContracts.Common.Constants.PropertyName.Path
   name: Path
   href: api/Microsoft.DocAsCode.DataContracts.Common.Constants.PropertyName.html#Microsoft_DocAsCode_DataContracts_Common_Constants_PropertyName_Path
@@ -23358,6 +23412,18 @@ references:
   commentId: Overload:Microsoft.DocAsCode.DataContracts.RestApi.RestApiChildItemViewModel.Responses
   fullName: Microsoft.DocAsCode.DataContracts.RestApi.RestApiChildItemViewModel.Responses
   nameWithType: RestApiChildItemViewModel.Responses
+- uid: Microsoft.DocAsCode.DataContracts.RestApi.RestApiChildItemViewModel.Tags
+  name: Tags
+  href: api/Microsoft.DocAsCode.DataContracts.RestApi.RestApiChildItemViewModel.html#Microsoft_DocAsCode_DataContracts_RestApi_RestApiChildItemViewModel_Tags
+  commentId: P:Microsoft.DocAsCode.DataContracts.RestApi.RestApiChildItemViewModel.Tags
+  fullName: Microsoft.DocAsCode.DataContracts.RestApi.RestApiChildItemViewModel.Tags
+  nameWithType: RestApiChildItemViewModel.Tags
+- uid: Microsoft.DocAsCode.DataContracts.RestApi.RestApiChildItemViewModel.Tags*
+  name: Tags
+  href: api/Microsoft.DocAsCode.DataContracts.RestApi.RestApiChildItemViewModel.html#Microsoft_DocAsCode_DataContracts_RestApi_RestApiChildItemViewModel_Tags_
+  commentId: Overload:Microsoft.DocAsCode.DataContracts.RestApi.RestApiChildItemViewModel.Tags
+  fullName: Microsoft.DocAsCode.DataContracts.RestApi.RestApiChildItemViewModel.Tags
+  nameWithType: RestApiChildItemViewModel.Tags
 - uid: Microsoft.DocAsCode.DataContracts.RestApi.RestApiItemViewModelBase
   name: RestApiItemViewModelBase
   href: api/Microsoft.DocAsCode.DataContracts.RestApi.RestApiItemViewModelBase.html
@@ -23856,6 +23922,27 @@ references:
   commentId: F:Microsoft.DocAsCode.Dfm.CodeSnippetTagType.Start
   fullName: Microsoft.DocAsCode.Dfm.CodeSnippetTagType.Start
   nameWithType: CodeSnippetTagType.Start
+- uid: Microsoft.DocAsCode.Dfm.CustomizedRendererCreator
+  name: CustomizedRendererCreator
+  href: api/Microsoft.DocAsCode.Dfm.CustomizedRendererCreator.html
+  commentId: T:Microsoft.DocAsCode.Dfm.CustomizedRendererCreator
+  fullName: Microsoft.DocAsCode.Dfm.CustomizedRendererCreator
+  nameWithType: CustomizedRendererCreator
+- uid: Microsoft.DocAsCode.Dfm.CustomizedRendererCreator.CreateRenderer(System.Object,System.Collections.Generic.IEnumerable{Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider},System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object})
+  name: CreateRenderer(Object, IEnumerable<IDfmCustomizedRendererPartProvider>, IReadOnlyDictionary<String, Object>)
+  href: api/Microsoft.DocAsCode.Dfm.CustomizedRendererCreator.html#Microsoft_DocAsCode_Dfm_CustomizedRendererCreator_CreateRenderer_System_Object_System_Collections_Generic_IEnumerable_Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPartProvider__System_Collections_Generic_IReadOnlyDictionary_System_String_System_Object__
+  commentId: M:Microsoft.DocAsCode.Dfm.CustomizedRendererCreator.CreateRenderer(System.Object,System.Collections.Generic.IEnumerable{Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider},System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object})
+  name.vb: CreateRenderer(Object, IEnumerable(Of IDfmCustomizedRendererPartProvider), IReadOnlyDictionary(Of String, Object))
+  fullName: Microsoft.DocAsCode.Dfm.CustomizedRendererCreator.CreateRenderer(System.Object, System.Collections.Generic.IEnumerable<Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider>, System.Collections.Generic.IReadOnlyDictionary<System.String, System.Object>)
+  fullName.vb: Microsoft.DocAsCode.Dfm.CustomizedRendererCreator.CreateRenderer(System.Object, System.Collections.Generic.IEnumerable(Of Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider), System.Collections.Generic.IReadOnlyDictionary(Of System.String, System.Object))
+  nameWithType: CustomizedRendererCreator.CreateRenderer(Object, IEnumerable<IDfmCustomizedRendererPartProvider>, IReadOnlyDictionary<String, Object>)
+  nameWithType.vb: CustomizedRendererCreator.CreateRenderer(Object, IEnumerable(Of IDfmCustomizedRendererPartProvider), IReadOnlyDictionary(Of String, Object))
+- uid: Microsoft.DocAsCode.Dfm.CustomizedRendererCreator.CreateRenderer*
+  name: CreateRenderer
+  href: api/Microsoft.DocAsCode.Dfm.CustomizedRendererCreator.html#Microsoft_DocAsCode_Dfm_CustomizedRendererCreator_CreateRenderer_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.CustomizedRendererCreator.CreateRenderer
+  fullName: Microsoft.DocAsCode.Dfm.CustomizedRendererCreator.CreateRenderer
+  nameWithType: CustomizedRendererCreator.CreateRenderer
 - uid: Microsoft.DocAsCode.Dfm.DfmBlockquoteBlockRule
   name: DfmBlockquoteBlockRule
   href: api/Microsoft.DocAsCode.Dfm.DfmBlockquoteBlockRule.html
@@ -24075,6 +24162,163 @@ references:
   commentId: Overload:Microsoft.DocAsCode.Dfm.DfmContextExtensions.SetIsInclude
   fullName: Microsoft.DocAsCode.Dfm.DfmContextExtensions.SetIsInclude
   nameWithType: DfmContextExtensions.SetIsInclude
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3
+  name: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html
+  commentId: T:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3
+  name.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext)
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext)
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext)
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.#ctor
+  name: DfmCustomizedRendererPartBase()
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3__ctor
+  commentId: M:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.#ctor
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.DfmCustomizedRendererPartBase()
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).DfmCustomizedRendererPartBase()
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.DfmCustomizedRendererPartBase()
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).DfmCustomizedRendererPartBase()
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.#ctor*
+  name: DfmCustomizedRendererPartBase
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3__ctor_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.#ctor
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.DfmCustomizedRendererPartBase
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).DfmCustomizedRendererPartBase
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.DfmCustomizedRendererPartBase
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).DfmCustomizedRendererPartBase
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownContextType
+  name: MarkdownContextType
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_MarkdownContextType
+  commentId: P:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownContextType
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownContextType
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownContextType
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownContextType
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownContextType
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownContextType*
+  name: MarkdownContextType
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_MarkdownContextType_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownContextType
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownContextType
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownContextType
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownContextType
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownContextType
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownRendererType
+  name: MarkdownRendererType
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_MarkdownRendererType
+  commentId: P:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownRendererType
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownRendererType
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownRendererType
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownRendererType
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownRendererType
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownRendererType*
+  name: MarkdownRendererType
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_MarkdownRendererType_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownRendererType
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownRendererType
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownRendererType
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownRendererType
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownRendererType
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownTokenType
+  name: MarkdownTokenType
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_MarkdownTokenType
+  commentId: P:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownTokenType
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownTokenType
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownTokenType
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownTokenType
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownTokenType
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownTokenType*
+  name: MarkdownTokenType
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_MarkdownTokenType_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.MarkdownTokenType
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownTokenType
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownTokenType
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.MarkdownTokenType
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).MarkdownTokenType
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Match(`0,`1,`2)
+  name: Match(TRenderer, TToken, TContext)
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_Match__0__1__2_
+  commentId: M:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Match(`0,`1,`2)
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Match(TRenderer, TToken, TContext)
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Match(TRenderer, TToken, TContext)
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Match(TRenderer, TToken, TContext)
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Match(TRenderer, TToken, TContext)
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Match*
+  name: Match
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_Match_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Match
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Match
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Match
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Match
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Match
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Microsoft#DocAsCode#Dfm#IDfmCustomizedRendererPart#Match(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  name: IDfmCustomizedRendererPart.Match(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_Match_Microsoft_DocAsCode_MarkdownLite_IMarkdownRenderer_Microsoft_DocAsCode_MarkdownLite_IMarkdownToken_Microsoft_DocAsCode_MarkdownLite_IMarkdownContext_
+  commentId: M:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Microsoft#DocAsCode#Dfm#IDfmCustomizedRendererPart#Match(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  name.vb: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer, Microsoft.DocAsCode.MarkdownLite.IMarkdownToken, Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer, Microsoft.DocAsCode.MarkdownLite.IMarkdownToken, Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.IDfmCustomizedRendererPart.Match(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Microsoft#DocAsCode#Dfm#IDfmCustomizedRendererPart#Match*
+  name: IDfmCustomizedRendererPart.Match
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_Match_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Microsoft#DocAsCode#Dfm#IDfmCustomizedRendererPart#Match
+  name.vb: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.IDfmCustomizedRendererPart.Match
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Microsoft#DocAsCode#Dfm#IDfmCustomizedRendererPart#Render(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  name: IDfmCustomizedRendererPart.Render(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_Render_Microsoft_DocAsCode_MarkdownLite_IMarkdownRenderer_Microsoft_DocAsCode_MarkdownLite_IMarkdownToken_Microsoft_DocAsCode_MarkdownLite_IMarkdownContext_
+  commentId: M:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Microsoft#DocAsCode#Dfm#IDfmCustomizedRendererPart#Render(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  name.vb: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer, Microsoft.DocAsCode.MarkdownLite.IMarkdownToken, Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer, Microsoft.DocAsCode.MarkdownLite.IMarkdownToken, Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.IDfmCustomizedRendererPart.Render(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Microsoft#DocAsCode#Dfm#IDfmCustomizedRendererPart#Render*
+  name: IDfmCustomizedRendererPart.Render
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_Render_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Microsoft#DocAsCode#Dfm#IDfmCustomizedRendererPart#Render
+  name.vb: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.IDfmCustomizedRendererPart.Render
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Name
+  name: Name
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_Name
+  commentId: P:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Name
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Name
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Name
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Name
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Name
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Name*
+  name: Name
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_Name_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Name
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Name
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Name
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Name
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Name
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Render(`0,`1,`2)
+  name: Render(TRenderer, TToken, TContext)
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_Render__0__1__2_
+  commentId: M:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Render(`0,`1,`2)
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Render(TRenderer, TToken, TContext)
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Render(TRenderer, TToken, TContext)
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Render(TRenderer, TToken, TContext)
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Render(TRenderer, TToken, TContext)
+- uid: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Render*
+  name: Render
+  href: api/Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase-3.html#Microsoft_DocAsCode_Dfm_DfmCustomizedRendererPartBase_3_Render_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase`3.Render
+  fullName: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Render
+  fullName.vb: Microsoft.DocAsCode.Dfm.DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Render
+  nameWithType: DfmCustomizedRendererPartBase<TRenderer, TToken, TContext>.Render
+  nameWithType.vb: DfmCustomizedRendererPartBase(Of TRenderer, TToken, TContext).Render
 - uid: Microsoft.DocAsCode.Dfm.DfmEmailInlineRule
   name: DfmEmailInlineRule
   href: api/Microsoft.DocAsCode.Dfm.DfmEmailInlineRule.html
@@ -26187,6 +26431,126 @@ references:
   commentId: T:Microsoft.DocAsCode.Dfm.IDfmBlockSpecialSplitToken
   fullName: Microsoft.DocAsCode.Dfm.IDfmBlockSpecialSplitToken
   nameWithType: IDfmBlockSpecialSplitToken
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart
+  name: IDfmCustomizedRendererPart
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html
+  commentId: T:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart
+  nameWithType: IDfmCustomizedRendererPart
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownContextType
+  name: MarkdownContextType
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_MarkdownContextType
+  commentId: P:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownContextType
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownContextType
+  nameWithType: IDfmCustomizedRendererPart.MarkdownContextType
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownContextType*
+  name: MarkdownContextType
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_MarkdownContextType_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownContextType
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownContextType
+  nameWithType: IDfmCustomizedRendererPart.MarkdownContextType
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownRendererType
+  name: MarkdownRendererType
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_MarkdownRendererType
+  commentId: P:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownRendererType
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownRendererType
+  nameWithType: IDfmCustomizedRendererPart.MarkdownRendererType
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownRendererType*
+  name: MarkdownRendererType
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_MarkdownRendererType_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownRendererType
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownRendererType
+  nameWithType: IDfmCustomizedRendererPart.MarkdownRendererType
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownTokenType
+  name: MarkdownTokenType
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_MarkdownTokenType
+  commentId: P:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownTokenType
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownTokenType
+  nameWithType: IDfmCustomizedRendererPart.MarkdownTokenType
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownTokenType*
+  name: MarkdownTokenType
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_MarkdownTokenType_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownTokenType
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.MarkdownTokenType
+  nameWithType: IDfmCustomizedRendererPart.MarkdownTokenType
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  name: Match(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_Match_Microsoft_DocAsCode_MarkdownLite_IMarkdownRenderer_Microsoft_DocAsCode_MarkdownLite_IMarkdownToken_Microsoft_DocAsCode_MarkdownLite_IMarkdownContext_
+  commentId: M:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer, Microsoft.DocAsCode.MarkdownLite.IMarkdownToken, Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  nameWithType: IDfmCustomizedRendererPart.Match(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match*
+  name: Match
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_Match_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Match
+  nameWithType: IDfmCustomizedRendererPart.Match
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Name
+  name: Name
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_Name
+  commentId: P:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Name
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Name
+  nameWithType: IDfmCustomizedRendererPart.Name
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Name*
+  name: Name
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_Name_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Name
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Name
+  nameWithType: IDfmCustomizedRendererPart.Name
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  name: Render(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_Render_Microsoft_DocAsCode_MarkdownLite_IMarkdownRenderer_Microsoft_DocAsCode_MarkdownLite_IMarkdownToken_Microsoft_DocAsCode_MarkdownLite_IMarkdownContext_
+  commentId: M:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer, Microsoft.DocAsCode.MarkdownLite.IMarkdownToken, Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  nameWithType: IDfmCustomizedRendererPart.Render(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render*
+  name: Render
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPart_Render_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPart.Render
+  nameWithType: IDfmCustomizedRendererPart.Render
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider
+  name: IDfmCustomizedRendererPartProvider
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider.html
+  commentId: T:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider
+  nameWithType: IDfmCustomizedRendererPartProvider
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider.CreateParts(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object})
+  name: CreateParts(IReadOnlyDictionary<String, Object>)
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPartProvider_CreateParts_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Object__
+  commentId: M:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider.CreateParts(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object})
+  name.vb: CreateParts(IReadOnlyDictionary(Of String, Object))
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider.CreateParts(System.Collections.Generic.IReadOnlyDictionary<System.String, System.Object>)
+  fullName.vb: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider.CreateParts(System.Collections.Generic.IReadOnlyDictionary(Of System.String, System.Object))
+  nameWithType: IDfmCustomizedRendererPartProvider.CreateParts(IReadOnlyDictionary<String, Object>)
+  nameWithType.vb: IDfmCustomizedRendererPartProvider.CreateParts(IReadOnlyDictionary(Of String, Object))
+- uid: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider.CreateParts*
+  name: CreateParts
+  href: api/Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider.html#Microsoft_DocAsCode_Dfm_IDfmCustomizedRendererPartProvider_CreateParts_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider.CreateParts
+  fullName: Microsoft.DocAsCode.Dfm.IDfmCustomizedRendererPartProvider.CreateParts
+  nameWithType: IDfmCustomizedRendererPartProvider.CreateParts
+- uid: Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer
+  name: IDfmEngineCustomizer
+  href: api/Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer.html
+  commentId: T:Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer
+  fullName: Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer
+  nameWithType: IDfmEngineCustomizer
+- uid: Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer.Customize(Microsoft.DocAsCode.Dfm.DfmEngineBuilder,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object})
+  name: Customize(DfmEngineBuilder, IReadOnlyDictionary<String, Object>)
+  href: api/Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer.html#Microsoft_DocAsCode_Dfm_IDfmEngineCustomizer_Customize_Microsoft_DocAsCode_Dfm_DfmEngineBuilder_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Object__
+  commentId: M:Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer.Customize(Microsoft.DocAsCode.Dfm.DfmEngineBuilder,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object})
+  name.vb: Customize(DfmEngineBuilder, IReadOnlyDictionary(Of String, Object))
+  fullName: Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer.Customize(Microsoft.DocAsCode.Dfm.DfmEngineBuilder, System.Collections.Generic.IReadOnlyDictionary<System.String, System.Object>)
+  fullName.vb: Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer.Customize(Microsoft.DocAsCode.Dfm.DfmEngineBuilder, System.Collections.Generic.IReadOnlyDictionary(Of System.String, System.Object))
+  nameWithType: IDfmEngineCustomizer.Customize(DfmEngineBuilder, IReadOnlyDictionary<String, Object>)
+  nameWithType.vb: IDfmEngineCustomizer.Customize(DfmEngineBuilder, IReadOnlyDictionary(Of String, Object))
+- uid: Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer.Customize*
+  name: Customize
+  href: api/Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer.html#Microsoft_DocAsCode_Dfm_IDfmEngineCustomizer_Customize_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer.Customize
+  fullName: Microsoft.DocAsCode.Dfm.IDfmEngineCustomizer.Customize
+  nameWithType: IDfmEngineCustomizer.Customize
 - uid: Microsoft.DocAsCode.Dfm.IDfmFencesBlockPathQueryOption
   name: IDfmFencesBlockPathQueryOption
   href: api/Microsoft.DocAsCode.Dfm.IDfmFencesBlockPathQueryOption.html
@@ -26976,6 +27340,60 @@ references:
   commentId: Overload:Microsoft.DocAsCode.Dfm.MultipleLineRangeBlockPathQueryOption.ValidateAndPrepare
   fullName: Microsoft.DocAsCode.Dfm.MultipleLineRangeBlockPathQueryOption.ValidateAndPrepare
   nameWithType: MultipleLineRangeBlockPathQueryOption.ValidateAndPrepare
+- uid: Microsoft.DocAsCode.Dfm.PlugableRendererBase
+  name: PlugableRendererBase
+  href: api/Microsoft.DocAsCode.Dfm.PlugableRendererBase.html
+  commentId: T:Microsoft.DocAsCode.Dfm.PlugableRendererBase
+  fullName: Microsoft.DocAsCode.Dfm.PlugableRendererBase
+  nameWithType: PlugableRendererBase
+- uid: Microsoft.DocAsCode.Dfm.PlugableRendererBase.#ctor(System.Object)
+  name: PlugableRendererBase(Object)
+  href: api/Microsoft.DocAsCode.Dfm.PlugableRendererBase.html#Microsoft_DocAsCode_Dfm_PlugableRendererBase__ctor_System_Object_
+  commentId: M:Microsoft.DocAsCode.Dfm.PlugableRendererBase.#ctor(System.Object)
+  fullName: Microsoft.DocAsCode.Dfm.PlugableRendererBase.PlugableRendererBase(System.Object)
+  nameWithType: PlugableRendererBase.PlugableRendererBase(Object)
+- uid: Microsoft.DocAsCode.Dfm.PlugableRendererBase.#ctor*
+  name: PlugableRendererBase
+  href: api/Microsoft.DocAsCode.Dfm.PlugableRendererBase.html#Microsoft_DocAsCode_Dfm_PlugableRendererBase__ctor_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.PlugableRendererBase.#ctor
+  fullName: Microsoft.DocAsCode.Dfm.PlugableRendererBase.PlugableRendererBase
+  nameWithType: PlugableRendererBase.PlugableRendererBase
+- uid: Microsoft.DocAsCode.Dfm.PlugableRendererBase.BaseRender(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  name: BaseRender(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+  href: api/Microsoft.DocAsCode.Dfm.PlugableRendererBase.html#Microsoft_DocAsCode_Dfm_PlugableRendererBase_BaseRender_Microsoft_DocAsCode_MarkdownLite_IMarkdownRenderer_Microsoft_DocAsCode_MarkdownLite_IMarkdownToken_Microsoft_DocAsCode_MarkdownLite_IMarkdownContext_
+  commentId: M:Microsoft.DocAsCode.Dfm.PlugableRendererBase.BaseRender(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  fullName: Microsoft.DocAsCode.Dfm.PlugableRendererBase.BaseRender(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer, Microsoft.DocAsCode.MarkdownLite.IMarkdownToken, Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  nameWithType: PlugableRendererBase.BaseRender(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+- uid: Microsoft.DocAsCode.Dfm.PlugableRendererBase.BaseRender*
+  name: BaseRender
+  href: api/Microsoft.DocAsCode.Dfm.PlugableRendererBase.html#Microsoft_DocAsCode_Dfm_PlugableRendererBase_BaseRender_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.PlugableRendererBase.BaseRender
+  fullName: Microsoft.DocAsCode.Dfm.PlugableRendererBase.BaseRender
+  nameWithType: PlugableRendererBase.BaseRender
+- uid: Microsoft.DocAsCode.Dfm.PlugableRendererBase.Dispose
+  name: Dispose()
+  href: api/Microsoft.DocAsCode.Dfm.PlugableRendererBase.html#Microsoft_DocAsCode_Dfm_PlugableRendererBase_Dispose
+  commentId: M:Microsoft.DocAsCode.Dfm.PlugableRendererBase.Dispose
+  fullName: Microsoft.DocAsCode.Dfm.PlugableRendererBase.Dispose()
+  nameWithType: PlugableRendererBase.Dispose()
+- uid: Microsoft.DocAsCode.Dfm.PlugableRendererBase.Dispose*
+  name: Dispose
+  href: api/Microsoft.DocAsCode.Dfm.PlugableRendererBase.html#Microsoft_DocAsCode_Dfm_PlugableRendererBase_Dispose_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.PlugableRendererBase.Dispose
+  fullName: Microsoft.DocAsCode.Dfm.PlugableRendererBase.Dispose
+  nameWithType: PlugableRendererBase.Dispose
+- uid: Microsoft.DocAsCode.Dfm.PlugableRendererBase.Render(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  name: Render(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+  href: api/Microsoft.DocAsCode.Dfm.PlugableRendererBase.html#Microsoft_DocAsCode_Dfm_PlugableRendererBase_Render_Microsoft_DocAsCode_MarkdownLite_IMarkdownRenderer_Microsoft_DocAsCode_MarkdownLite_IMarkdownToken_Microsoft_DocAsCode_MarkdownLite_IMarkdownContext_
+  commentId: M:Microsoft.DocAsCode.Dfm.PlugableRendererBase.Render(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer,Microsoft.DocAsCode.MarkdownLite.IMarkdownToken,Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  fullName: Microsoft.DocAsCode.Dfm.PlugableRendererBase.Render(Microsoft.DocAsCode.MarkdownLite.IMarkdownRenderer, Microsoft.DocAsCode.MarkdownLite.IMarkdownToken, Microsoft.DocAsCode.MarkdownLite.IMarkdownContext)
+  nameWithType: PlugableRendererBase.Render(IMarkdownRenderer, IMarkdownToken, IMarkdownContext)
+- uid: Microsoft.DocAsCode.Dfm.PlugableRendererBase.Render*
+  name: Render
+  href: api/Microsoft.DocAsCode.Dfm.PlugableRendererBase.html#Microsoft_DocAsCode_Dfm_PlugableRendererBase_Render_
+  commentId: Overload:Microsoft.DocAsCode.Dfm.PlugableRendererBase.Render
+  fullName: Microsoft.DocAsCode.Dfm.PlugableRendererBase.Render
+  nameWithType: PlugableRendererBase.Render
 - uid: Microsoft.DocAsCode.Dfm.RecursiveNameCodeSnippetExtractor
   name: RecursiveNameCodeSnippetExtractor
   href: api/Microsoft.DocAsCode.Dfm.RecursiveNameCodeSnippetExtractor.html
@@ -37784,6 +38202,18 @@ references:
   commentId: Overload:Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.Items
   fullName: Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.Items
   nameWithType: ExtractMetadataInputModel.Items
+- uid: Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.MSBuildProperties
+  name: MSBuildProperties
+  href: api/Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.html#Microsoft_DocAsCode_Metadata_ManagedReference_ExtractMetadataInputModel_MSBuildProperties
+  commentId: P:Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.MSBuildProperties
+  fullName: Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.MSBuildProperties
+  nameWithType: ExtractMetadataInputModel.MSBuildProperties
+- uid: Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.MSBuildProperties*
+  name: MSBuildProperties
+  href: api/Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.html#Microsoft_DocAsCode_Metadata_ManagedReference_ExtractMetadataInputModel_MSBuildProperties_
+  commentId: Overload:Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.MSBuildProperties
+  fullName: Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.MSBuildProperties
+  nameWithType: ExtractMetadataInputModel.MSBuildProperties
 - uid: Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.PreserveRawInlineComments
   name: PreserveRawInlineComments
   href: api/Microsoft.DocAsCode.Metadata.ManagedReference.ExtractMetadataInputModel.html#Microsoft_DocAsCode_Metadata_ManagedReference_ExtractMetadataInputModel_PreserveRawInlineComments
@@ -40610,6 +41040,18 @@ references:
   commentId: Overload:Microsoft.DocAsCode.MetadataJsonItemConfig.GlobalNamespaceId
   fullName: Microsoft.DocAsCode.MetadataJsonItemConfig.GlobalNamespaceId
   nameWithType: MetadataJsonItemConfig.GlobalNamespaceId
+- uid: Microsoft.DocAsCode.MetadataJsonItemConfig.MSBuildProperties
+  name: MSBuildProperties
+  href: api/Microsoft.DocAsCode.MetadataJsonItemConfig.html#Microsoft_DocAsCode_MetadataJsonItemConfig_MSBuildProperties
+  commentId: P:Microsoft.DocAsCode.MetadataJsonItemConfig.MSBuildProperties
+  fullName: Microsoft.DocAsCode.MetadataJsonItemConfig.MSBuildProperties
+  nameWithType: MetadataJsonItemConfig.MSBuildProperties
+- uid: Microsoft.DocAsCode.MetadataJsonItemConfig.MSBuildProperties*
+  name: MSBuildProperties
+  href: api/Microsoft.DocAsCode.MetadataJsonItemConfig.html#Microsoft_DocAsCode_MetadataJsonItemConfig_MSBuildProperties_
+  commentId: Overload:Microsoft.DocAsCode.MetadataJsonItemConfig.MSBuildProperties
+  fullName: Microsoft.DocAsCode.MetadataJsonItemConfig.MSBuildProperties
+  nameWithType: MetadataJsonItemConfig.MSBuildProperties
 - uid: Microsoft.DocAsCode.MetadataJsonItemConfig.Raw
   name: Raw
   href: api/Microsoft.DocAsCode.MetadataJsonItemConfig.html#Microsoft_DocAsCode_MetadataJsonItemConfig_Raw
