@@ -408,9 +408,10 @@ namespace Microsoft.DocAsCode.Build.Engine
                 return null;
             }
 
-            if (XRefMaps != null && XRefMaps.Count > 0)
+            if (_reader != null)
             {
-                xref = (from map in XRefMaps select new BasicXRefMapReader(map).Find(uid)).FirstOrDefault();
+                xref = _reader.Result?.Find(uid);
+
                 if (xref != null)
                 {
                     return ExternalXRefSpec.AddOrUpdate(uid, xref, (_, old) => old + xref);
